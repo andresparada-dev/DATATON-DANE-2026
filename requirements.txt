@@ -1,0 +1,16 @@
+# Núcleo (suficiente para scripts/analisis_rapido.py y las pruebas)
+pandas>=2.0
+numpy>=1.24
+requests>=2.31
+matplotlib>=3.7
+scikit-learn>=1.3
+openpyxl>=3.1
+
+# Opcionales (instalar si hay tiempo / internet en la sala)
+# pyreadstat     # leer .sav/.dta de microdatos DANE
+# duckdb         # SQL rápido sobre CSV/Parquet grandes
+# pyarrow        # Parquet
+# folium         # mapas HTML interactivos
+# geopandas      # shapefiles del MGN (Marco Geoestadístico Nacional)
+# sodapy         # cliente oficial Socrata (datos.gov.co); el repo trae uno propio sin dependencias
+pytest>=7.0
