@@ -1,0 +1,11 @@
+indicador,desagregacion,valor,unidad,fecha_publicacion,tipo_fuente,fuente_url,nota
+unidades_economicas,Nacional,2548896,unidades,2022-02,OFICIAL,https://www.dane.gov.co/files/investigaciones/notas-estadisticas/feb-2022-censo-economico.pdf,Conteo 2021 (precenso); NO directamente comparable con CENU 2024
+unidades_economicas,Bogotá D.C.,451093,unidades,2022-02,OFICIAL,https://www.dane.gov.co/files/investigaciones/notas-estadisticas/feb-2022-censo-economico.pdf,17.7%
+unidades_economicas,Antioquia,296942,unidades,2022-02,OFICIAL,https://www.dane.gov.co/files/investigaciones/notas-estadisticas/feb-2022-censo-economico.pdf,11.6%
+unidades_economicas,Valle del Cauca,253601,unidades,2022-02,OFICIAL,https://www.dane.gov.co/files/investigaciones/notas-estadisticas/feb-2022-censo-economico.pdf,9.9%
+unidades_economicas,Santander,148009,unidades,2022-02,OFICIAL,https://www.dane.gov.co/files/investigaciones/notas-estadisticas/feb-2022-censo-economico.pdf,5.8%
+unidades_economicas,Cundinamarca,135583,unidades,2022-02,OFICIAL,https://www.dane.gov.co/files/investigaciones/notas-estadisticas/feb-2022-censo-economico.pdf,5.3%
+pct_por_condicion,Fijas,83.1,%,2022-02,PRENSA,https://www.elcolombiano.com/negocios/empresas/cuantas-unidades-economicas-hay-en-colombia-OA15733904,
+pct_por_condicion,Viviendas con actividad económica,9.4,%,2022-02,PRENSA,https://www.elcolombiano.com/negocios/empresas/cuantas-unidades-economicas-hay-en-colombia-OA15733904,240186 unidades
+pct_por_condicion,Puestos móviles,4.1,%,2022-02,PRENSA,https://www.elcolombiano.com/negocios/empresas/cuantas-unidades-economicas-hay-en-colombia-OA15733904,
+pct_por_condicion,Semifijas,3.4,%,2022-02,PRENSA,https://www.elcolombiano.com/negocios/empresas/cuantas-unidades-economicas-hay-en-colombia-OA15733904,

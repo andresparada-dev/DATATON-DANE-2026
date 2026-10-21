@@ -1,0 +1,136 @@
+indicador,desagregacion,valor,unidad,anio,fuente_url,nota
+Establecimientos industriales censados,Nacional - Primer Censo Industrial,7853,establecimientos,1945,https://www.dane.gov.co/files/operaciones/EAM/met-EAM.pdf,Contraloria; ref jun-1944 a jun-1945; >=5 ocupados o produccion >=$6.000
+Establecimientos comercio minorista,Nacional - Censo comercio y servicios,96530,establecimientos,1971,https://difusioncensoeconomiconacionalurbano.dane.gov.co/images/2025/sobre/documentos/ficha-tecnica_version-clasica.pdf,POR VERIFICAR alcance (censo exhaustivo vs estrato)
+Establecimientos comercio mayorista,Nacional - Censo comercio y servicios,7588,establecimientos,1971,https://difusioncensoeconomiconacionalurbano.dane.gov.co/images/2025/sobre/documentos/ficha-tecnica_version-clasica.pdf,POR VERIFICAR alcance
+Establecimientos de servicios,Nacional - Censo comercio y servicios,37306,establecimientos,1971,https://difusioncensoeconomiconacionalurbano.dane.gov.co/images/2025/sobre/documentos/ficha-tecnica_version-clasica.pdf,POR VERIFICAR alcance
+Unidades economicas,Nacional urbano - Censo Economico 1990,1001398,unidades economicas,1990,https://censoeconomiconacionalurbano.dane.gov.co/images/2024/agosto/Ficha-Metodologica_CENU_FME-001_v1_2024_08_21.pdf,Industria comercio servicios construccion transporte
+Unidades economicas con personal ocupado,Nacional urbano - Censo Economico 1990,967428,unidades economicas,1990,https://censoeconomiconacionalurbano.dane.gov.co/images/2024/agosto/Ficha-Metodologica_CENU_FME-001_v1_2024_08_21.pdf,
+Personal ocupado,Nacional urbano - Censo Economico 1990,3932823,personas,1990,https://censoeconomiconacionalurbano.dane.gov.co/images/2024/agosto/Ficha-Metodologica_CENU_FME-001_v1_2024_08_21.pdf,
+Participacion industria en unidades economicas,Nacional urbano - CE 1990,9.5,%,1990,https://www.portafolio.co/economia/regiones/ciudades-intermedias-impulsan-el-nuevo-mapa-economico-de-colombia-con-los-servicios-como-protagonistas-499548,Prensa (analisis comparativo 1990-2024)
+Participacion Bogota en unidades economicas,Bogota - CE 1990,23.2,%,1990,https://www.portafolio.co/economia/regiones/ciudades-intermedias-impulsan-el-nuevo-mapa-economico-de-colombia-con-los-servicios-como-protagonistas-499548,NO CONFIRMADO en fuente DANE; analisis secundario (E. Freire) citado en prensa
+Establecimientos industriales,Nacional - Censo General 2005,160055,establecimientos,2005,https://www.dane.gov.co/files/operaciones/EAM/met-EAM.pdf,Inventario de unidades economicas CG2005
+Empleados industria,Nacional - Censo General 2005,946701,personas,2005,https://www.dane.gov.co/files/operaciones/EAM/met-EAM.pdf,
+Distribucion establecimientos industria/comercio/servicios/otras,Cesar - CG2005,7.1/51.1/33.1/8.7,%,2005,https://www.dane.gov.co/files/censo2005/PERFIL_PDF_CG2005/20000T7T000.PDF,Perfil departamental; total nacional NO CONFIRMADO
+Unidades de produccion totales,Rural disperso - CNA 2014,2913163,unidades,2014,https://www.dane.gov.co/files/CensoAgropecuario/entrega-definitiva/Boletin-12-UPNA/12-Boletin.pdf,UPA+UPNA
+UPA,Rural disperso - CNA 2014,2370099,UPA,2014,https://www.dane.gov.co/files/CensoAgropecuario/entrega-definitiva/Boletin-12-UPNA/12-Boletin.pdf,
+UPNA (unidades no agropecuarias),Rural disperso - CNA 2014,543064,UPNA,2014,https://www.dane.gov.co/files/CensoAgropecuario/entrega-definitiva/Boletin-12-UPNA/12-Boletin.pdf,
+Area rural dispersa censada,Nacional - CNA 2014,111.5,millones de hectareas,2014,https://www.dane.gov.co/files/CensoAgropecuario/entrega-definitiva/Boletin-11-parques-naturales-nacionales/11-Boletin.pdf,
+Hogares particulares,Nacional - CNPV 2018,14.2,millones,2018,https://www.dane.gov.co/files/censo2018/informacion-tecnica/cnpv-2018-comunicado-3ra-entrega.pdf,
+Unidades economicas urbanas visibles,Nacional urbano - CENU,2005613,unidades economicas,2024,https://www.dane.gov.co/index.php/actualidad-dane/5878-el-dane-presento-los-resultados-preliminares-del-censo-economico-nacional-urbano,Preliminar; 1.102 municipios + San Andres + 18 ANM; prensa reporta tambien 2.005.622
+Cobertura promedio operativo,Nacional urbano - CENU,98.2,%,2024,https://www.dane.gov.co/index.php/actualidad-dane/5878-el-dane-presento-los-resultados-preliminares-del-censo-economico-nacional-urbano,"superior a 98,2%"
+Presupuesto CENU 2024,Nacional,302213,millones COP,2024,https://www.dane.gov.co/files/investigaciones/censo-economico/cp-CENU.pdf,
+Participacion comercio en unidades,Nacional urbano - CENU,53.1,%,2024,https://www.dane.gov.co/index.php/actualidad-dane/5878-el-dane-presento-los-resultados-preliminares-del-censo-economico-nacional-urbano,Preliminar
+Unidades comercio,Nacional urbano - CENU,1064505,unidades economicas,2024,https://www.elnuevosiglo.com.co/economia/bogota-es-la-region-que-concentra-mas-unidades-economicas-en-el-pais,Valora reporta 1.062.288
+Participacion servicios en unidades,Nacional urbano - CENU,32.3,%,2024,https://www.dane.gov.co/index.php/actualidad-dane/5878-el-dane-presento-los-resultados-preliminares-del-censo-economico-nacional-urbano,Preliminar
+Unidades servicios,Nacional urbano - CENU,648375,unidades economicas,2024,https://www.elnuevosiglo.com.co/economia/bogota-es-la-region-que-concentra-mas-unidades-economicas-en-el-pais,
+Participacion industria en unidades,Nacional urbano - CENU,5.2,%,2024,https://www.dane.gov.co/index.php/actualidad-dane/5878-el-dane-presento-los-resultados-preliminares-del-censo-economico-nacional-urbano,"MinHacienda reporta 7,4% (por verificar)"
+Unidades industria,Nacional urbano - CENU,105148,unidades economicas,2024,https://www.elnuevosiglo.com.co/economia/bogota-es-la-region-que-concentra-mas-unidades-economicas-en-el-pais,
+Unidades economicas,Bogota D.C. - CENU,360565,unidades economicas,2024,https://www.eluniversal.com.co/economica/2025/11/14/estos-son-los-resultados-del-censo-economico-nacional-urbano-en-bolivar/,"18,0% del total"
+Unidades economicas,Antioquia - CENU,250574,unidades economicas,2024,https://www.eluniversal.com.co/economica/2025/11/14/estos-son-los-resultados-del-censo-economico-nacional-urbano-en-bolivar/,"12,5%"
+Unidades economicas,Valle del Cauca - CENU,193974,unidades economicas,2024,https://www.eluniversal.com.co/economica/2025/11/14/estos-son-los-resultados-del-censo-economico-nacional-urbano-en-bolivar/,"9,7%"
+Unidades economicas,Cundinamarca - CENU,110694,unidades economicas,2024,https://www.eluniversal.com.co/economica/2025/11/14/estos-son-los-resultados-del-censo-economico-nacional-urbano-en-bolivar/,
+Unidades economicas,Santander - CENU,110548,unidades economicas,2024,https://www.eluniversal.com.co/economica/2025/11/14/estos-son-los-resultados-del-censo-economico-nacional-urbano-en-bolivar/,
+Unidades economicas,Atlantico - CENU,83911,unidades economicas,2024,https://www.eluniversal.com.co/economica/2025/11/14/estos-son-los-resultados-del-censo-economico-nacional-urbano-en-bolivar/,
+Unidades economicas,Bolivar - CENU,72795,unidades economicas,2024,https://www.eluniversal.com.co/economica/2025/11/14/estos-son-los-resultados-del-censo-economico-nacional-urbano-en-bolivar/,Entrega posterior: 72.830
+Unidades economicas,Medellin (ciudad) - CENU,118678,unidades economicas,2024,https://www.portafolio.co/economia/regiones/ciudades-intermedias-impulsan-el-nuevo-mapa-economico-de-colombia-con-los-servicios-como-protagonistas-499548,Prensa; otra fuente 118.679
+Unidades economicas,Cali (ciudad) - CENU,99208,unidades economicas,2024,https://www.portafolio.co/economia/regiones/ciudades-intermedias-impulsan-el-nuevo-mapa-economico-de-colombia-con-los-servicios-como-protagonistas-499548,Prensa
+Unidades economicas,Bucaramanga (ciudad) - CENU,52065,unidades economicas,2024,https://www.larepublica.co/economia/unidades-economicas-el-foco-del-nuevo-censo-economico-del-dane-4347152,Prensa
+Unidades de venta en calle,Nacional urbano - CENU,219042,unidades economicas,2024,https://www.eltiempo.com/economia/sectores/radiografia-de-la-economia-urbana-de-colombia-hay-mas-de-2-millones-de-negocios-y-mas-de-210-000-de-ellos-se-realizan-en-la-calle-3507775,Primera vez incluidas
+Unidades de venta en calle,Bogota D.C. - CENU,42097,unidades economicas,2024,https://www.eltiempo.com/economia/sectores/radiografia-de-la-economia-urbana-de-colombia-hay-mas-de-2-millones-de-negocios-y-mas-de-210-000-de-ellos-se-realizan-en-la-calle-3507775,
+Unidades de venta en calle,Antioquia - CENU,21617,unidades economicas,2024,https://www.eltiempo.com/economia/sectores/radiografia-de-la-economia-urbana-de-colombia-hay-mas-de-2-millones-de-negocios-y-mas-de-210-000-de-ellos-se-realizan-en-la-calle-3507775,
+Unidades de venta en calle,Valle del Cauca - CENU,19326,unidades economicas,2024,https://www.eltiempo.com/economia/sectores/radiografia-de-la-economia-urbana-de-colombia-hay-mas-de-2-millones-de-negocios-y-mas-de-210-000-de-ellos-se-realizan-en-la-calle-3507775,
+Unidades de venta en calle,Medellin - CENU,13692,unidades economicas,2024,https://www.eltiempo.com/economia/sectores/radiografia-de-la-economia-urbana-de-colombia-hay-mas-de-2-millones-de-negocios-y-mas-de-210-000-de-ellos-se-realizan-en-la-calle-3507775,
+Unidades de venta en calle,Cali - CENU,12213,unidades economicas,2024,https://www.eltiempo.com/economia/sectores/radiografia-de-la-economia-urbana-de-colombia-hay-mas-de-2-millones-de-negocios-y-mas-de-210-000-de-ellos-se-realizan-en-la-calle-3507775,
+Unidades semifijas,Nacional urbano - CENU,43400,unidades economicas,2024,https://www.portafolio.co/economia/regiones/en-colombia-hay-mas-de-dos-millones-de-unidades-economicas-segun-el-nuevo-censo-economico-nacional-urbano-del-dane-497881,Prensa
+Ingresos de las unidades economicas,Nacional urbano - CENU,2421,billones COP,2023,https://www.valoraanalitik.com/resultados-del-censo-economico-del-dane-2026/,Prensa; ano de referencia 2023
+Puestos de trabajo,Nacional urbano - CENU,9.5,millones (mas de),2024,https://www.eltiempo.com/economia/sectores/radiografia-de-la-economia-urbana-de-colombia-hay-mas-de-2-millones-de-negocios-y-mas-de-210-000-de-ellos-se-realizan-en-la-calle-3507775,NO CONFIRMADO en fuente DANE; resumen de prensa
+Unidades con propietaria mujer,Nacional urbano - CENU,613953,unidades economicas,2024,https://www.larepublica.co/economia/dane-reporto-mas-de-1-1-millones-de-unidades-economicas-con-datos-sociodemograficos-4384649,"51,6% de las que respondieron modulo sociodemografico"
+Unidades con propietario hombre,Nacional urbano - CENU,576983,unidades economicas,2024,https://www.larepublica.co/economia/dane-reporto-mas-de-1-1-millones-de-unidades-economicas-con-datos-sociodemograficos-4384649,"48,4%"
+Unidades con informacion sociodemografica,Nacional urbano - CENU,59.4,%,2024,https://www.valoraanalitik.com/resultados-del-censo-economico-del-dane-2026/,
+Unidades con informacion valida (modulo formalizacion),Nacional urbano - CENU,1547275,unidades economicas,2024,https://www.eluniversal.com.co/economica/2026/05/26/censo-economico-del-dane-bolivar-se-rajo-en-registro-mercantil-y-rut/,4o informe preliminar
+Unidades con RUT,Nacional urbano - CENU,760680,unidades economicas,2024,https://www.eluniversal.com.co/economica/2026/05/26/censo-economico-del-dane-bolivar-se-rajo-en-registro-mercantil-y-rut/,"49,16%; El Tiempo reporta 760.327 (49,2%)"
+Porcentaje con RUT,Nacional urbano - CENU,49.16,%,2024,https://www.eluniversal.com.co/economica/2026/05/26/censo-economico-del-dane-bolivar-se-rajo-en-registro-mercantil-y-rut/,
+Porcentaje sin RUT,Nacional urbano - CENU,37.32,%,2024,https://www.eluniversal.com.co/economica/2026/05/26/censo-economico-del-dane-bolivar-se-rajo-en-registro-mercantil-y-rut/,"577.485 unidades; 13,51% sin informacion"
+Micronegocios,Nacional - EMICRON,5297252,micronegocios,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-2024.pdf,"+2,1% vs 2023; excluye 8 deptos Amazonia/Orinoquia"
+Micronegocios (propietarios),Nacional - EMICRON,5188402,micronegocios,2023,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-2023.pdf,
+Micronegocios,Nacional - EMICRON,5150956,micronegocios,2022,https://www.dane.gov.co/files/investigaciones/boletines/ech/micro/bol-micronegocios-2022.pdf,
+Micronegocios con 1 persona ocupada,Nacional - EMICRON,79.3,%,2022,https://www.dane.gov.co/files/investigaciones/boletines/ech/micro/bol-micronegocios-2022.pdf,"2-3 personas 17,7%; 4-9 personas 3,0%"
+Micronegocios sin RUT,Nacional - EMICRON,77.6,%,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-2024.pdf,
+Micronegocios sin RUT,Cabeceras - EMICRON,70.4,%,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-2024.pdf,
+Micronegocios sin RUT,Centros poblados y rural disperso - EMICRON,94.0,%,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-2024.pdf,
+Micronegocios sin registro en Camara de Comercio,Nacional - EMICRON,89.5,%,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-2024.pdf,
+Propietarias mujeres,Nacional - EMICRON,35.4,%,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-2024.pdf,POR VERIFICAR (extracto ambiguo)
+Propietarias mujeres,Nacional - EMICRON,35.5,%,2023,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-2023.pdf,
+Participacion comercio en ventas de micronegocios,Nacional - EMICRON,36.5,%,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-2024.pdf,"Agro 14,2%"
+Micronegocios,24 departamentos + Bogota - EMICRON,5262313,micronegocios,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-Departamentos-EMICRON-2024.pdf,
+Participacion micronegocios,Antioquia - EMICRON,12.1,%,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-Departamentos-EMICRON-2024.pdf,
+Participacion micronegocios,Bogota D.C. - EMICRON,11.2,%,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-Departamentos-EMICRON-2024.pdf,
+Participacion micronegocios,Valle del Cauca - EMICRON,8.5,%,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-Departamentos-EMICRON-2024.pdf,
+Participacion micronegocios,Narino - EMICRON,7.7,%,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-Departamentos-EMICRON-2024.pdf,
+Micronegocios por actividad servicios/comercio/agro/industria,24 departamentos + Bogota - EMICRON,43.8/24.1/22.2/10.0,%,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-Departamentos-EMICRON-2024.pdf,
+Valor agregado micronegocios,24 departamentos + Bogota - EMICRON,87.3,billones COP,2024,https://www.valoraanalitik.com/bogota-y-medellin-concentraron-la-mayoria-de-los-micronegocios-en-colombia-sector-aporto-513-billones-en-2025/,NO CONFIRMADO en PDF
+Micronegocios,24 ciudades y AM - EMICRON,2434942,micronegocios,2025,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-IVtrim2025.pdf,
+Valor agregado micronegocios,24 ciudades y AM - EMICRON,51.3,billones COP,2025,https://www.valoraanalitik.com/bogota-y-medellin-concentraron-la-mayoria-de-los-micronegocios-en-colombia-sector-aporto-513-billones-en-2025/,
+Ingresos nominales micronegocios,24 ciudades y AM - EMICRON,106.5,billones COP,2025,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-IVtrim2025.pdf,
+Propietarias mujeres,24 ciudades y AM - EMICRON,37.5,%,2025,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-IVtrim2025.pdf,"Hombres 62,5%"
+Participacion micronegocios,Bogota - 24 ciudades EMICRON,25.8,%,2025,https://www.valoraanalitik.com/bogota-y-medellin-concentraron-la-mayoria-de-los-micronegocios-en-colombia-sector-aporto-513-billones-en-2025/,"2024: 25,3%"
+Participacion micronegocios,Medellin AM - 24 ciudades EMICRON,17.5,%,2025,https://www.valoraanalitik.com/bogota-y-medellin-concentraron-la-mayoria-de-los-micronegocios-en-colombia-sector-aporto-513-billones-en-2025/,
+Participacion valor agregado micronegocios,Bogota - 24 ciudades EMICRON,31.2,%,2025,https://www.valoraanalitik.com/bogota-y-medellin-concentraron-la-mayoria-de-los-micronegocios-en-colombia-sector-aporto-513-billones-en-2025/,
+Participacion valor agregado micronegocios,Medellin AM - 24 ciudades EMICRON,20.5,%,2025,https://www.valoraanalitik.com/bogota-y-medellin-concentraron-la-mayoria-de-los-micronegocios-en-colombia-sector-aporto-513-billones-en-2025/,
+Participacion valor agregado micronegocios,Cali AM - 24 ciudades EMICRON,7.9,%,2025,https://www.valoraanalitik.com/bogota-y-medellin-concentraron-la-mayoria-de-los-micronegocios-en-colombia-sector-aporto-513-billones-en-2025/,
+Participacion valor agregado micronegocios,Bucaramanga AM - 24 ciudades EMICRON,7.8,%,2025,https://www.valoraanalitik.com/bogota-y-medellin-concentraron-la-mayoria-de-los-micronegocios-en-colombia-sector-aporto-513-billones-en-2025/,
+Participacion valor agregado micronegocios,Barranquilla AM - 24 ciudades EMICRON,7.6,%,2025,https://www.valoraanalitik.com/bogota-y-medellin-concentraron-la-mayoria-de-los-micronegocios-en-colombia-sector-aporto-513-billones-en-2025/,
+Micronegocios de vendedores ambulantes,Nacional - EMICRON,507266,micronegocios,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRONVendedoresAmbulantes-2024.pdf,"comercio 45,9% servicios 34,2% industria 11,6% agro 8,2%"
+Micronegocios de construccion,Nacional - EMICRON,290294,micronegocios,2024,https://www.dane.gov.co/files/operaciones/EMICRON/bol-EMICRON-SectorConstruccion-2024.pdf,"Ventas $7,8 billones"
+Ocupados en Economia Popular,Nacional - Nota estadistica,11.8,millones,2025,https://www.dane.gov.co/files/investigaciones/notas-estadisticas/nota-EconomiaPopular-2026.pdf,Promedio periodo; experimental
+Micronegocios en Economia Popular,Nacional - Nota estadistica,4.7,millones,2025,https://www.dane.gov.co/files/investigaciones/notas-estadisticas/nota-EconomiaPopular-2026.pdf,Aproximado
+Proporcion ocupados informales,Total nacional - GEIH,54.8,%,2026 (jun-ago),https://www.dane.gov.co/files/operaciones/GEIH/bol-GEIHEISS-jun-ago2026.pdf,"Mismo trimestre 2025: 55,2%"
+Proporcion ocupados informales,13 ciudades y AM - GEIH,40.7,%,2026 (jun-ago),https://www.dane.gov.co/files/operaciones/GEIH/bol-GEIHEISS-jun-ago2026.pdf,
+Proporcion ocupados informales,23 ciudades y AM - GEIH,42.0,%,2026 (jun-ago),https://www.dane.gov.co/files/operaciones/GEIH/bol-GEIHEISS-jun-ago2026.pdf,
+Proporcion ocupados informales,Centros poblados y rural disperso - GEIH,83.1,%,2026 (jun-ago),https://www.dane.gov.co/files/operaciones/GEIH/bol-GEIHEISS-jun-ago2026.pdf,
+Proporcion ocupados informales,Sincelejo - GEIH,65.4,%,2026 (jun-ago),https://www.businesscol.com/dane-reporta-reduccion-leve-en-informalidad-laboral-durante-junio-agosto-2026/,Prensa citando boletin
+Proporcion ocupados informales,Cucuta AM - GEIH,62.4,%,2026 (jun-ago),https://www.businesscol.com/dane-reporta-reduccion-leve-en-informalidad-laboral-durante-junio-agosto-2026/,
+Proporcion ocupados informales,Riohacha - GEIH,61.6,%,2026 (jun-ago),https://www.businesscol.com/dane-reporta-reduccion-leve-en-informalidad-laboral-durante-junio-agosto-2026/,
+Proporcion ocupados informales,Bogota D.C. - GEIH,34.1,%,2026 (jun-ago),https://www.businesscol.com/dane-reporta-reduccion-leve-en-informalidad-laboral-durante-junio-agosto-2026/,
+Proporcion ocupados informales,Tunja - GEIH,34.7,%,2026 (jun-ago),https://www.businesscol.com/dane-reporta-reduccion-leve-en-informalidad-laboral-durante-junio-agosto-2026/,
+Proporcion ocupados informales,Manizales AM - GEIH,35.3,%,2026 (jun-ago),https://www.businesscol.com/dane-reporta-reduccion-leve-en-informalidad-laboral-durante-junio-agosto-2026/,
+Proporcion ocupados informales,Microempresas - GEIH,85.1,%,2026 (jun-ago),https://www.pymenoticias.com/post/informalidad-microempresas-dane-boletin-ciudades,"Pequenas 19,0; medianas 5,4; grandes 2,5"
+Ocupados informales,Total nacional - GEIH,13.2,millones,2026 (jun-ago),https://www.larepublica.co/economia/entre-junio-y-agosto-13-2-millones-de-personas-trabajaron-en-el-mercado-informal-4502039,
+Proporcion ocupados informales,Total nacional - GEIH,55.7,%,2025 (oct-dic),https://www.dane.gov.co/files/operaciones/GEIH/bol-GEIHEISS-oct-dic2025.pdf,
+Proporcion ocupados informales,13 ciudades y AM - GEIH,42.3,%,2025 (oct-dic),https://www.dane.gov.co/files/operaciones/GEIH/bol-GEIHEISS-oct-dic2025.pdf,
+Proporcion ocupados informales,23 ciudades y AM - GEIH,43.6,%,2025 (oct-dic),https://www.dane.gov.co/files/operaciones/GEIH/bol-GEIHEISS-oct-dic2025.pdf,
+Proporcion ocupados informales,Total nacional - GEIH,55.3,%,2026 (enero),https://www.dane.gov.co/files/operaciones/GEIH/pres-GEIH-ene2026.pdf,"enero 2025: 56,0%"
+Proporcion ocupados informales,Sincelejo - GEIH,69.1,%,2025 (jul-sep),https://datacucuta.com/wp-content/uploads/2025/11/Informalidad-Septiembre-25.pdf,"Monteria 66,0; Valledupar 65,4; Cucuta 62,8"
+Proporcion ocupados informales,Bogota D.C. - GEIH,33.0,%,2025 (jul-sep),https://datacucuta.com/wp-content/uploads/2025/11/Informalidad-Septiembre-25.pdf,"Manizales 36,5; Tunja 38,5"
+Proporcion ocupados informales,Medellin AM - GEIH,38.2,%,2025-2026 (dic-feb),https://www.infobae.com/colombia/2026/09/14/mas-de-la-mitad-de-los-trabajadores-en-colombia-sigue-sin-cotizar-y-sin-una-pension-garantizada-la-informalidad-llego-al-546-segun-el-dane/,Prensa; verificar fuente exacta del periodo
+Establecimientos industriales investigados,Nacional - EAM,6583,establecimientos,2024,https://www.dane.gov.co/files/operaciones/EAM/bol-EAM-2024.pdf,Provisional; publicado 19-dic-2025
+Personal ocupado industria,Nacional - EAM,730844,personas,2024,https://www.dane.gov.co/files/operaciones/EAM/bol-EAM-2024.pdf,"60,3% permanente; 23,5% temporal directo; 13,4% agencias"
+Empresas comerciales investigadas,Nacional - EAC,10231,empresas,2024,https://www.dane.gov.co/files/operaciones/EAC/bol-EAC-2024.pdf,Umbral >=10 ocupados o ingresos >= $2.520 millones
+Participacion comercio al por mayor en ventas,Nacional - EAC,57.8,%,2024,https://www.dane.gov.co/files/operaciones/EAC/bol-EAC-2024.pdf,
+Empresas de servicios investigadas,Nacional - EAS,6885,empresas,2024,https://www.dane.gov.co/files/operaciones/EAS/bol-EAS-2024.pdf,Publicado 12-dic-2025
+PIB precios corrientes,Total nacional,1706447,miles de millones COP,2024,https://www.dane.gov.co/files/operaciones/PIB/bol-PIBDep-2024pr.pdf,Provisional
+PIB precios corrientes,Bogota D.C.,430151,miles de millones COP,2024,https://www.dane.gov.co/files/operaciones/PIB/bol-PIBDep-2024pr.pdf,"25,2%"
+PIB precios corrientes,Antioquia,253232,miles de millones COP,2024,https://www.dane.gov.co/files/operaciones/PIB/bol-PIBDep-2024pr.pdf,"14,8%"
+PIB precios corrientes,Valle del Cauca,166349,miles de millones COP,2024,https://www.dane.gov.co/files/operaciones/PIB/bol-PIBDep-2024pr.pdf,"9,7%"
+Participacion PIB seis principales economias,Bogota+Antioquia+Valle+Santander+Cundinamarca+Atlantico,67.3,%,2025,https://www.dane.gov.co/files/operaciones/PIB/bol-PIBDep-2025pr.pdf,Preliminar; publicado 3-jul-2026
+Crecimiento real PIB,Bogota D.C.,3.5,%,2025,https://www.dane.gov.co/files/operaciones/PIB/bol-PIBDep-2025pr.pdf,Preliminar
+Crecimiento real PIB,Casanare,-2.2,%,2025,https://www.dane.gov.co/files/operaciones/PIB/bol-PIBDep-2025pr.pdf,Preliminar
+PIB precios corrientes,Region Pacifica,252,billones COP,2025,https://www.dane.gov.co/files/operaciones/PIB/bol-PIBDep-2025pr.pdf,"13,6% del total"
+Empresas creadas,Nacional - RUES/Confecamaras,297475,empresas,2024,https://confecamaras.org.co/wp-content/uploads/2025/01/dinamica-creacion-empresas-colombia-2025.pdf,"-2,8% vs 2023 (305.997)"
+Empresas creadas personas naturales,Nacional - RUES/Confecamaras,214953,empresas,2024,https://confecamaras.org.co/wp-content/uploads/2025/01/dinamica-creacion-empresas-colombia-2025.pdf,
+Empresas creadas sociedades,Nacional - RUES/Confecamaras,82522,empresas,2024,https://confecamaras.org.co/wp-content/uploads/2025/01/dinamica-creacion-empresas-colombia-2025.pdf,
+Empresas activas,Nacional - RUES/Confecamaras,1739405,empresas,2024,https://revistaclevel.com/creacion-de-empresas-en-colombia-disminuyo-28-en-2024,POR VERIFICAR en informe Confecamaras
+Empresas creadas,Nacional - RUES/Confecamaras,173907,empresas,2025 (I semestre),https://confecamaras.org.co/wp-content/uploads/2025/08/dinamica-de-creacion-de-empresas-en-colombia-op2-web.pdf,"+1,9%; 74% personas naturales"
+Empresas creadas,Bogota-Region - CCB,81372,empresas,2025 (ene-nov),https://www.portafolio.co/negocios/empresas/la-creacion-de-empresas-aumento-6-en-bogota-y-cundinamarca-hasta-noviembre-segun-la-camara-de-comercio-485224,+6%
+Empresas activas,Bogota-Region - CCB,493825,empresas,2025,https://lanotaeconomica.com.co/?p=53844,"Otra cifra CCB ene-nov: 496.686; 87,5% en Bogota"
+Empresas activas,Medellin (ciudad),118441,empresas,2024,https://www.medellin.gov.co/es/sala-de-prensa/noticias/medellin-aumento-su-tejido-empresarial-en-3-5-durante-2024/,"+3,5%"
+Establecimientos,Mexico - Censos Economicos 2019,6373169,establecimientos,2019,https://inegi.org.mx/contenidos/saladeprensa/boletines/2025/ce/CE_2024_RO_Nal.pdf,Personal ocupado 36.038.272
+Establecimientos (aprox.),Mexico - Censos Economicos 2024,7000000,establecimientos,2024,https://inegi.org.mx/contenidos/saladeprensa/boletines/2025/ce/CE_2024_RO_Nal.pdf,"~37 M ocupados; 95,5% micro con 41,5% del empleo; resultados oportunos 23-ene-2025"
+Unidades economicas en DENUE,Mexico - DENUE 24a edicion,6097675,unidades economicas,2025,https://www.inegi.org.mx/app/mapa/denue/,Datos a marzo 2025; API: https://www.inegi.org.mx/servicios/api_denue.html
+Economia informal % PIB,Mexico - INEGI MEI,25.4,%,2024,https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2025/pibmed/MEI2024_CP.pdf,
+Sector informal % PIB,Peru - INEI CSEI,19.0,%,2024,https://www.gob.pe/institucion/inei/informes-publicaciones/7564428-produccion-y-empleo-informal-en-el-peru-cuenta-satelite-de-la-economia-informal-2022-2024,
+Establecimientos censados,Lima Metropolitana - IV CENEC,342374,establecimientos,2008,https://gestion.pe/economia/que-zonas-de-lima-y-provincias-concentran-mas-locales-para-negocio-quienes-los-lideran-noticia/,Total nacional ~1 M NO CONFIRMADO
+Establecimientos censados,Lima Metropolitana - V CENEC,624027,establecimientos,2022,https://gestion.pe/economia/que-zonas-de-lima-y-provincias-concentran-mas-locales-para-negocio-quienes-los-lideran-noticia/,"+82,3% vs 2008"
+Establecimientos,Ecuador - CENEC 2010,511130,establecimientos,2010,https://unstats.un.org/unsd/trade/events/2015/aguascalientes/3.-Panel%20I%20-%20Presentation%201%20-%20INEC%20Ecuador.pdf,Cifra 500.217 NO CONFIRMADA
+Empresas y organizaciones formales activas,Brasil - IBGE CEMPRE,10000000,empresas (aprox.),2023,https://agenciadenoticias.ibge.gov.br/pt/agencia-noticias/45117-empresas-contrataram-mais-e-registraram-ganho-real-do-salario-medio-em-2023.html,"66 M ocupados; 93,1% con 0-9 personas; excluye MEI"
+Empresas en registros tributarios (aprox.),Chile - SII,1500000,empresas,~2023,https://www.df.cl/economia-y-politica/df-tax/ecos-de-la-operacion-renta-sube-cantidad-de-empresas-y-ventas-pero-por,Prensa; ano exacto NO CONFIRMADO
