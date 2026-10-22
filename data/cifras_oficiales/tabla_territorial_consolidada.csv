@@ -1,0 +1,12 @@
+territorio,nivel,cenu_2024_unidades,conteo_2021_unidades,cenu_2024_vendedores_calle,pib_2024_miles_millones,emicron_2024_pct_micronegocios,fuentes
+Nacional,pais,2005613,2548896,219042,1706447,100,"CENU: dane.gov.co actualidad-dane/5878; Conteo: notas-estadisticas/feb-2022-censo-economico.pdf; Vendedores: larepublica.co 4346821; PIB: bol-PIBDep-2024pr.pdf"
+Bogotá D.C.,departamento,360565,451093,42097,430151,11.2,"CENU: valoraanalitik.com; Conteo: feb-2022-censo-economico.pdf; PIB: bol-PIBDep-2024pr.pdf; EMICRON: bol-Departamentos-EMICRON-2024.pdf"
+Antioquia,departamento,250574,296942,21617,253232,12.1,"idem"
+Valle del Cauca,departamento,193974,253601,19326,166349,8.5,"idem"
+Cundinamarca,departamento,110694,135583,,,,"CENU: elnuevosiglo.com.co; Conteo: feb-2022-censo-economico.pdf"
+Santander,departamento,110548,148009,,,,"CENU: elnuevosiglo.com.co; Conteo: feb-2022-censo-economico.pdf"
+Atlántico,departamento,83911,,,,,"CENU: elnuevosiglo.com.co"
+Bolívar,departamento,72795,,,,,"CENU: eluniversal.com.co 2025-11-14"
+Medellín,municipio,118679,,13692,,,"CENU: semana.com; vendedores: larepublica.co 4346821"
+Cali,municipio,99208,,12213,,,"CENU: semana.com; vendedores: larepublica.co 4346821"
+Bucaramanga,municipio,52065,,,,,"CENU: semana.com"
