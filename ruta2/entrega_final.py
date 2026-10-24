@@ -27,7 +27,7 @@ cuadro = pd.DataFrame({
     "% bajo ingreso (0-10 M)": top["pct_bajo_ingreso"].round(1),
     "% alto ingreso (>1.000 M)": top["pct_alto_ingreso"].round(1),
     "% respuesta personal": top["pct_respuesta_personal"].round(1),
-    "% bajo personal (0-5)": top["pct_bajo_personal"].round(1),
+    "% bajo personal (1-5)": top["pct_bajo_personal"].round(1),
     "% alto personal (>50)": top["pct_alto_personal"].round(1),
     "Tipología (vs nacional 23,8 % / 6,1 %)": [tipo(b, a) for b, a in zip(top["pct_bajo_ingreso"], top["pct_alto_ingreso"])],
 })
@@ -47,7 +47,7 @@ visor["% de Bogotá"] = (100 * visor["Unidades"] / UNIVERSO_BOG).round(1)
 control = pd.DataFrame([
     ("Universo Bogotá (módulo sectoral_reference_2023)", UNIVERSO_BOG),
     ("Unidades con división CIIU visible", int(div["unidades"].sum())),
-    ("Suprimidas por reserva estadística", UNIVERSO_BOG - int(div["unidades"].sum())),
+    ("CIIU no visible por reserva estadística (anonimización)", UNIVERSO_BOG - int(div["unidades"].sum())),
     ("Referencia nacional % bajo ingreso", 23.8), ("Referencia nacional % alto ingreso", 6.1),
 ], columns=["Control", "Valor"])
 

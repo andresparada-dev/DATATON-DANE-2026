@@ -126,6 +126,8 @@ def clasificar_rango(desc, variable: str) -> str:
     """bajo / medio / alto / sin_dato según los umbrales de la guía (ingreso 10 M y 1.000 M; personal 5 y 50)."""
     if es_sin_dato(desc):
         return "sin_dato"
+    if variable == "personal" and _norm(desc) == "0":
+        return "sin_dato"          # el Visor CENU rotula este rango como "Sin información reportada"
     lo, hi = limites(desc)
     if variable == "ingreso":
         bajo_max, alto_min = 10.0, 1000.0
