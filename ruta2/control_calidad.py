@@ -32,24 +32,42 @@ BOGOTA_TOTAL = 195_745
 BOGOTA_IND: dict[int, tuple[float, float]] = {}
 
 
+def _buscar_variables(x):
+    """Devuelve el primer dict de la respuesta que contenga la variable ciiu_division con sus values."""
+    if isinstance(x, dict):
+        if isinstance(x.get("ciiu_division"), dict) and "values" in x["ciiu_division"]:
+            return x
+        for v in x.values():
+            r = _buscar_variables(v)
+            if r:
+                return r
+    elif isinstance(x, list):
+        for v in x:
+            r = _buscar_variables(v)
+            if r:
+                return r
+    return None
+
+
 def descargar_pais() -> dict:
-    """Consulta nacional (granularity=country) de las 3 variables de la Ruta 2 directamente a la API."""
+    """Consulta nacional de las 3 variables de la Ruta 2 directamente a la API."""
     import requests
     from ruta2_bogota import BASE, MODULO
     variables = ["ciiu_division", "total_income_2023", "total_employed_personnel"]
-    ultimo = None
+    intentos = []
     for body in ({"module": MODULO, "variables": variables, "granularity": "country"},
-                 {"module": MODULO, "variables": variables, "granularity": "country", "variable_filters": {}},
-                 {"module": MODULO, "variables": variables}):
+                 {"module": MODULO, "variables": variables, "variable_filters": {"granularity": "country"}},
+                 {"module": MODULO, "variables": variables, "granularity": "country", "variable_filters": {}}):
         r = requests.post(f"{BASE}/structural/general", json=body, timeout=180)
-        ultimo = (r.status_code, r.text[:300])
+        intentos.append((r.status_code, json.dumps(body), r.text[:200]))
         if r.ok:
-            j = r.json()
-            pais = j.get("pais") or j.get("country")
-            if isinstance(pais, dict) and "ciiu_division" in pais:
+            pais = _buscar_variables(r.json())
+            if pais:
                 print("Datos nacionales descargados de la API con body:", body)
                 return pais
-    raise RuntimeError(f"No se pudo descargar el nivel nacional: {ultimo}. Sube el Excel de la API y pasa su nombre.")
+    for t in intentos:
+        print("intento:", *t)
+    raise RuntimeError("No se pudo descargar el nivel nacional. Sube el Excel de la API y pasa su nombre.")
 
 
 def leer_pais(ruta: str | None) -> dict:
@@ -59,7 +77,8 @@ def leer_pais(ruta: str | None) -> dict:
         return descargar_pais()
     df = pd.read_excel(ruta)
     celda = df["pais"].dropna().iloc[0]
-    return celda if isinstance(celda, dict) else ast.literal_eval(celda)
+    celda = celda if isinstance(celda, dict) else ast.literal_eval(celda)
+    return _buscar_variables(celda) or celda
 
 
 def main():
