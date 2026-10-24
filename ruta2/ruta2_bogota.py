@@ -110,9 +110,9 @@ def limites(desc) -> tuple[float, float]:
     escala = 1.0
     if "mil millones" in d or "mm" in d.split():
         escala = 1000.0
-    elif "millon" in d:
+    elif "millon" in d or re.search(r"\bm\b", d):   # "0 - 10 M", "10.001 - 100.000 M": ya en millones
         escala = 1.0
-    elif max(nums) >= 100_000:          # viene en pesos
+    elif max(nums) >= 100_000_000:      # sin unidad y cifras de pesos (≥ 100 millones)
         escala = 1e-6
     nums = [n * escala for n in nums]
     if any(k in d for k in ("mas de", "mayor", "superior", "o mas", "y mas", ">", "+")):
