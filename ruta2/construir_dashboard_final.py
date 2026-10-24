@@ -26,6 +26,10 @@ RANGOS_PER = ["1 - 5", "6 - 10", "11 - 20", "21 - 50", "51 - 100", "101 - 500", 
 BOG_PER_TOTAL = [80.4, 7.0, 3.5, 2.6, 1.4, 1.6, 0.6]                       # Visor, % del total (2,9 % sin información)
 BOG_SIN_INFO_PER = 2.9
 ING_PROM_BOG, ING_TOTAL_BOG_MILLONES = 7_422, 1_180_444_620
+# Agente de voz ElevenLabs (requiere internet; el resto del dashboard funciona sin conexión)
+AGENTE_VOZ = """<!-- Asistente de voz · ElevenLabs Conversational AI -->
+<elevenlabs-convai agent-id="agent_5901m5q8fk19fzbsy4zh3d8ngcx4"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>"""
 
 
 def leer_divisiones():
@@ -88,6 +92,7 @@ def main():
             html = html.replace(f"__{clave}__", val)
         css = R / "vendor" / "tailwind_oscuro.css"   # npx tailwindcss --content plantilla_dashboard_oscuro.html --minify
         html = html.replace("__TAILWIND__", css.read_text(encoding="utf-8") if css.exists() else "")
+        html = html.replace("__AGENTE_VOZ__", AGENTE_VOZ)
         html = html.replace("__CHARTJS__", (R / "vendor" / "chart.umd.4.4.1.js").read_text(encoding="utf-8"))
         pendientes = re.findall(r"__[A-Z0-9_]+__", html)
         assert not pendientes, pendientes

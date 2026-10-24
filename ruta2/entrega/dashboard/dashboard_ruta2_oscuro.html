@@ -19,6 +19,7 @@
       <div class="flex flex-wrap gap-2">
         <span class="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">DataJam CENU 2026 · Ruta 2</span>
         <span class="bg-amber-400 text-amber-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Resultados preliminares</span>
+        <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-semibold px-3 py-1 rounded-full">🎙️ Asistente de voz: abajo a la derecha</span>
       </div>
       <h1 class="text-2xl font-bold mt-2 text-white tracking-tight">Radiografía Estructural de Bogotá D.C.</h1>
       <p class="text-xs text-slate-400 mt-1">CENU 2024 · módulo <span class="text-slate-200 font-semibold">sectoral_reference_2023</span> · año de referencia 2023 · DIVIPOLA 11001</p>
@@ -303,5 +304,8 @@ document.getElementById('tabla').innerHTML = D.divs.map((d, i) => `
     <td class="px-3 py-3 text-right text-rose-300">${pct(d.lowP)}</td><td class="px-3 py-3 text-right text-sky-300">${pct(d.highP)}</td>
     <td class="px-3 py-3 text-center"><span class="${badge(d.tipo)} px-2 py-0.5 rounded text-[10px] whitespace-nowrap">${d.tipo}</span></td></tr>`).join('');
 </script>
+<!-- Asistente de voz · ElevenLabs Conversational AI -->
+<elevenlabs-convai agent-id="agent_5901m5q8fk19fzbsy4zh3d8ngcx4"></elevenlabs-convai>
+<script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 </body>
 </html>
