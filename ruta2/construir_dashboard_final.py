@@ -66,6 +66,8 @@ def main():
         "rangosPer": RANGOS_PER, "bogPer": bog_per, "nacPer": nac_per,
         "sectores": [{"s": s, "u": u, "pct": round(100 * u / CON_CIIU, 1)} for s, u in SECTORES],
         "refBajo": round(nac_ing[0], 1), "refAlto": round(sum(nac_ing[5:]), 1),
+        "comp": {"bog": [BOG_ING[0], round(sum(BOG_ING[5:]), 1), round(bog_per[0], 1), round(sum(bog_per[4:]), 1)],
+                 "nac": [round(nac_ing[0], 1), round(sum(nac_ing[5:]), 1), round(nac_per[0], 1), round(sum(nac_per[4:]), 1)]},
     }
     k = {
         "UNIVERSO": f"{UNIVERSO:,}".replace(",", "."), "CON_CIIU": f"{CON_CIIU:,}".replace(",", "."),
@@ -78,16 +80,20 @@ def main():
         "PESO_UNI": f"{100 * CON_CIIU / tc_nac:.1f}".replace(".", ","),
         "BOG_P15": f"{bog_per[0]:.1f}".replace(".", ","), "NAC_P15": f"{nac_per[0]:.1f}".replace(".", ","),
     }
-    html = (R / "plantilla_dashboard_final.html").read_text(encoding="utf-8")
-    html = html.replace("__DATOS__", json.dumps(datos, ensure_ascii=False))
-    for clave, val in k.items():
-        html = html.replace(f"__{clave}__", val)
-    html = html.replace("__CHARTJS__", (R / "vendor" / "chart.umd.4.4.1.js").read_text(encoding="utf-8"))
-    pendientes = re.findall(r"__[A-Z0-9_]+__", html)
-    assert not pendientes, pendientes
-    dest = R / "salidas" / "dashboard_ruta2_final.html"
-    dest.write_text(html, encoding="utf-8")
-    print("->", dest, f"({dest.stat().st_size / 1024:.0f} KB)")
+    for plantilla, salida in (("plantilla_dashboard_final.html", "dashboard_ruta2_final.html"),
+                              ("plantilla_dashboard_oscuro.html", "dashboard_ruta2_oscuro.html")):
+        html = (R / plantilla).read_text(encoding="utf-8")
+        html = html.replace("__DATOS__", json.dumps(datos, ensure_ascii=False))
+        for clave, val in k.items():
+            html = html.replace(f"__{clave}__", val)
+        css = R / "vendor" / "tailwind_oscuro.css"   # npx tailwindcss --content plantilla_dashboard_oscuro.html --minify
+        html = html.replace("__TAILWIND__", css.read_text(encoding="utf-8") if css.exists() else "")
+        html = html.replace("__CHARTJS__", (R / "vendor" / "chart.umd.4.4.1.js").read_text(encoding="utf-8"))
+        pendientes = re.findall(r"__[A-Z0-9_]+__", html)
+        assert not pendientes, pendientes
+        dest = R / "salidas" / salida
+        dest.write_text(html, encoding="utf-8")
+        print("->", dest, f"({dest.stat().st_size / 1024:.0f} KB)")
     print(json.dumps({x: datos[x] for x in ("nacIng", "bogPer", "nacPer", "refBajo", "refAlto")}, ensure_ascii=False))
     print(k)
 

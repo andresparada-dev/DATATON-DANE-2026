@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Económico · Bogotá · CENU (Ruta 2)</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>__TAILWIND__</style>
+<style>
+  body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#0f172a;overflow-x:hidden}
+  .tab-on{background:#2563eb;color:#fff}
+</style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen">
+
+<header class="bg-slate-950 border-b border-slate-800 sticky top-0 z-50 px-4 sm:px-6 py-4">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between md:items-center gap-3">
+    <div>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">DataJam CENU 2026 · Ruta 2</span>
+        <span class="bg-amber-400 text-amber-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Resultados preliminares</span>
+      </div>
+      <h1 class="text-2xl font-bold mt-2 text-white tracking-tight">Radiografía Estructural de Bogotá D.C.</h1>
+      <p class="text-xs text-slate-400 mt-1">CENU 2024 · módulo <span class="text-slate-200 font-semibold">sectoral_reference_2023</span> · año de referencia 2023 · DIVIPOLA 11001</p>
+    </div>
+    <div class="md:text-right">
+      <p class="text-xs text-slate-400">Universo analizado</p>
+      <p class="text-lg font-bold text-blue-400">__UNIVERSO__ Unidades Económicas</p>
+      <p class="text-[11px] text-slate-500">__CON_CIIU__ con división CIIU visible · 10 por reserva estadística</p>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-8">
+
+  <!-- Pregunta reto -->
+  <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div>
+      <p class="text-[11px] uppercase font-semibold text-blue-400 tracking-wider">Pregunta reto</p>
+      <p class="text-base font-bold text-white mt-1">¿Cómo se distribuye la actividad económica de Bogotá y dónde hay más oportunidades para emprender?</p>
+    </div>
+    <div class="lg:col-span-2">
+      <p class="text-[11px] uppercase font-semibold text-emerald-400 tracking-wider">Respuesta</p>
+      <p class="text-sm text-slate-300 mt-1 leading-relaxed">El comercio concentra el <strong class="text-white">__COMERCIO__ %</strong> de las unidades y las 10 divisiones más grandes suman el <strong class="text-white">__TOP10__ %</strong>.
+        Hay <strong class="text-rose-300">señal de subsistencia</strong> (muchas unidades con ingreso de 0–10 M y casi ninguna sobre 1.000 M) en reparación de efectos personales (95), servicios personales (96) y comercio al por menor (47).
+        Las <strong class="text-emerald-300">oportunidades de escalamiento</strong> están en comercio al por mayor (46), alimentos (10), almacenamiento (52), educación (85), metalmecánica (25) y salud (86).</p>
+    </div>
+  </section>
+
+  <!-- KPIs -->
+  <section class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl">
+      <p class="text-[11px] uppercase font-semibold text-slate-400">Comercio (div. 45–47)</p>
+      <p class="text-3xl font-extrabold text-blue-400 mt-2">__COMERCIO__%</p>
+      <p class="text-xs text-slate-400 mt-1">de las unidades con CIIU</p>
+    </div>
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl">
+      <p class="text-[11px] uppercase font-semibold text-slate-400">Ingreso promedio anual</p>
+      <p class="text-3xl font-extrabold text-white mt-2">$__PROM_BOG__M</p>
+      <p class="text-xs text-emerald-400 mt-1">nacional $__PROM_NAC__M por unidad</p>
+    </div>
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl">
+      <p class="text-[11px] uppercase font-semibold text-slate-400">Ingreso bajo (0–10 M)</p>
+      <p class="text-3xl font-extrabold text-rose-400 mt-2">__BOG_BAJO__%</p>
+      <p class="text-xs text-emerald-400 mt-1">nacional __NAC_BAJO__%</p>
+    </div>
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl">
+      <p class="text-[11px] uppercase font-semibold text-slate-400">Ingreso alto (&gt;1.000 M)</p>
+      <p class="text-3xl font-extrabold text-sky-400 mt-2">__BOG_ALTO__%</p>
+      <p class="text-xs text-emerald-400 mt-1">nacional __NAC_ALTO__%</p>
+    </div>
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl">
+      <p class="text-[11px] uppercase font-semibold text-slate-400">Unidades con 1–5 personas</p>
+      <p class="text-3xl font-extrabold text-amber-400 mt-2">__BOG_P15__%</p>
+      <p class="text-xs text-slate-400 mt-1">nacional __NAC_P15__% · sobre respondientes</p>
+    </div>
+    <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 shadow-xl">
+      <p class="text-[11px] uppercase font-semibold text-slate-400">Peso en ingresos del país</p>
+      <p class="text-3xl font-extrabold text-white mt-2">__PESO_ING__%</p>
+      <p class="text-xs text-slate-400 mt-1">con el __PESO_UNI__% de las unidades</p>
+    </div>
+  </section>
+
+  <!-- Gráfico 1: top 10 apiladas -->
+  <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
+      <div>
+        <h2 class="text-lg font-bold text-white">Top 10 Divisiones CIIU: Estructura por Rangos</h2>
+        <p class="text-xs text-slate-400 mt-1">% sobre las unidades que respondieron en cada división. Bajo: ingreso 0–10 M / 1–5 personas · Alto: ingreso &gt;1.000 M / &gt;50 personas.</p>
+      </div>
+      <div class="inline-flex rounded-lg border border-slate-600 overflow-hidden text-xs font-semibold" role="tablist">
+        <button class="tab px-4 py-2 tab-on" data-v="ing">Ingresos 2023</button>
+        <button class="tab px-4 py-2 text-slate-300" data-v="per">Personal ocupado</button>
+      </div>
+    </div>
+    <div class="relative h-[460px] my-4"><canvas id="g1" aria-label="Top 10 divisiones por rango"></canvas></div>
+    <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+      <p class="text-xs text-slate-300">💡 <strong>Insight:</strong> El comercio al por mayor (46) tiene <strong class="text-sky-300">36,1 %</strong> de unidades con ingresos &gt;1.000 M, seis veces el promedio nacional. En el otro extremo, reparación de efectos personales (95) concentra <strong class="text-rose-300">32,2 %</strong> en 0–10 M, con 0,7 % en el rango alto y 98,5 % de unidades con 1–5 personas.</p>
+    </div>
+  </section>
+
+  <!-- Gráficos 2 y 3 -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+      <div>
+        <h2 class="text-lg font-bold text-white">Bogotá vs. Promedio Nacional</h2>
+        <p class="text-xs text-slate-400 mt-1">Indicadores clave sobre las unidades que respondieron (API, nivel nacional y Bogotá).</p>
+      </div>
+      <div class="relative h-80 my-4"><canvas id="g2" aria-label="Bogotá vs nacional"></canvas></div>
+      <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+        <p class="text-xs text-slate-300">💡 <strong>Insight:</strong> Bogotá tiene menos unidades en el rango bajo de ingreso (__BOG_BAJO__ % vs __NAC_BAJO__ %) y más en el alto (__BOG_ALTO__ % vs __NAC_ALTO__ %). Con el __PESO_UNI__ % de las unidades genera el __PESO_ING__ % de los ingresos del país.</p>
+      </div>
+    </section>
+    <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+      <div>
+        <h2 class="text-lg font-bold text-white">Mapa de Oportunidades: ¿Subsistencia o Escalamiento?</h2>
+        <p class="text-xs text-slate-400 mt-1">Cada burbuja es una división CIIU (tamaño = unidades). Líneas punteadas = referencia nacional.</p>
+      </div>
+      <div class="relative h-80 my-4"><canvas id="g5" aria-label="Cuadrantes subsistencia vs escalamiento"></canvas></div>
+      <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+        <p class="text-xs text-slate-300">💡 <strong>Insight:</strong> <span class="text-sky-300">Arriba a la izquierda</span> (pocas unidades en ingreso bajo, muchas en alto): 46, 10, 52, 85, 25, 86. <span class="text-rose-300">Abajo a la derecha</span>: 95, 96 y 47, con señal de subsistencia.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Gráficos 4 y 5 -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+      <div>
+        <h2 class="text-lg font-bold text-white">Radiografía del Empleo (Personal Ocupado)</h2>
+        <p class="text-xs text-slate-400 mt-1">% de unidades por rango de personas ocupadas, sobre respondientes. "Sin información reportada" (2,9 % en Bogotá) se excluye.</p>
+      </div>
+      <div class="relative h-72 my-4"><canvas id="g3" aria-label="Personal ocupado por rango"></canvas></div>
+      <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+        <p class="text-xs text-slate-300">💡 <strong>Insight:</strong> El __BOG_P15__ % de las unidades que reportaron personal opera con 1 a 5 personas (nacional __NAC_P15__ %). Solo el 3,7 % tiene más de 50 personas (nacional 2,0 %).</p>
+      </div>
+    </section>
+    <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+      <div>
+        <h2 class="text-lg font-bold text-white">Distribución por Rangos de Ingresos Anuales</h2>
+        <p class="text-xs text-slate-400 mt-1">% de unidades que reportaron ingreso 2023. Los rangos se leen como rangos: no se suman pesos.</p>
+      </div>
+      <div class="relative h-72 my-4"><canvas id="g4" aria-label="Ingresos por rango"></canvas></div>
+      <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+        <p class="text-xs text-slate-300">💡 <strong>Insight:</strong> El 49,8 % de las unidades que reportaron ingresos está entre 0 y 50 M al año (nacional 61,2 %).</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Tabla top 10 -->
+  <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl">
+    <h2 class="text-lg font-bold text-white">Cuadro Top 10: Principales Divisiones CIIU en Bogotá</h2>
+    <p class="text-xs text-slate-400 mt-1 mb-4">División × unidades × % rangos bajos y altos de ingreso y de personal (sobre respondientes). Tipología frente a la referencia nacional de ingreso (bajo __NAC_BAJO__ % · alto __NAC_ALTO__ %). Filas 11–12 como referencia.</p>
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-xs text-slate-300">
+        <thead class="bg-slate-900 text-slate-400 uppercase tracking-wider">
+          <tr>
+            <th class="px-3 py-3">#</th><th class="px-3 py-3">División</th><th class="px-3 py-3">Nombre del sector</th>
+            <th class="px-3 py-3 text-right">Unidades</th><th class="px-3 py-3 text-right">% Bogotá</th>
+            <th class="px-3 py-3 text-right">% Ingreso bajo</th><th class="px-3 py-3 text-right">% Ingreso alto</th>
+            <th class="px-3 py-3 text-right">% Personal bajo</th><th class="px-3 py-3 text-right">% Personal alto</th>
+            <th class="px-3 py-3 text-center">Tipología</th>
+          </tr>
+        </thead>
+        <tbody id="tabla" class="divide-y divide-slate-700"></tbody>
+      </table>
+    </div>
+    <p class="text-[11px] text-slate-500 mt-3">Un rango bajo es una <strong>señal</strong> de posible subsistencia, no una prueba. Respuesta de la división 47: 71,5 % en ingreso y 69,4 % en personal.</p>
+  </section>
+
+  <!-- Recomendaciones -->
+  <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl">
+    <h2 class="text-lg font-bold text-white mb-4">Conclusiones y Recomendación de Política Local</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div class="bg-slate-900/60 rounded-xl border border-rose-500/40 p-4">
+        <p class="text-sm font-bold text-rose-300">Señal de subsistencia · 95, 96, 47</p>
+        <p class="text-xs text-slate-300 mt-2">Juntas suman 106.718 unidades (54,5 % de Bogotá), con 0,7 %, 0,8 % y 3,3 % de unidades sobre 1.000 M.</p>
+        <p class="text-xs text-slate-200 mt-3 bg-slate-800 rounded-lg p-2"><strong>Acción:</strong> formalización simplificada (Régimen Simple), microcrédito como alternativa al "gota a gota", pagos digitales y certificación de oficios.</p>
+      </div>
+      <div class="bg-slate-900/60 rounded-xl border border-amber-500/40 p-4">
+        <p class="text-sm font-bold text-amber-300">Encadenamiento · 46 → 47</p>
+        <p class="text-xs text-slate-300 mt-2">Los mayoristas (46) tienen 36,1 % de unidades sobre 1.000 M; los minoristas (47) son 92.335 unidades con 3,3 % en ese rango.</p>
+        <p class="text-xs text-slate-200 mt-3 bg-slate-800 rounded-lg p-2"><strong>Acción:</strong> programas de proveeduría, crédito de proveedor y compras agrupadas para que los mayoristas jalonen a las tiendas.</p>
+      </div>
+      <div class="bg-slate-900/60 rounded-xl border border-emerald-500/40 p-4">
+        <p class="text-sm font-bold text-emerald-300">Dónde emprender · 10, 52, 85, 25, 86</p>
+        <p class="text-xs text-slate-300 mt-2">Alimentos (22,9 % alto, 9,3 % bajo), almacenamiento (19,0 %), educación (16,7 %), metalmecánica (14,0 %; LQ 1,27) y salud (13,7 %).</p>
+        <p class="text-xs text-slate-200 mt-3 bg-slate-800 rounded-lg p-2"><strong>Acción:</strong> capital semilla, compras públicas y crédito productivo focalizados en estas divisiones.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rigor -->
+  <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl">
+    <h2 class="text-lg font-bold text-white mb-3">Rigor y Calidad de los Datos</h2>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 text-xs text-slate-300">
+      <li><span class="text-emerald-400 font-bold">✓</span> Universo del módulo sectoral_reference_2023: 1.058.881 unidades nacionales; Bogotá __UNIVERSO__ (__PESO_UNI__ %).</li>
+      <li><span class="text-emerald-400 font-bold">✓</span> "Sin información" tratada como no respuesta y excluida del denominador.</li>
+      <li><span class="text-emerald-400 font-bold">✓</span> % sobre respondientes; respuesta reportada aparte (nacional: 82,6 % ingreso, 82,2 % personal).</li>
+      <li><span class="text-emerald-400 font-bold">✓</span> Filtros por territorio (municipality_ids = 11001) y por actividad (ciiu_division).</li>
+      <li><span class="text-emerald-400 font-bold">✓</span> Rangos leídos como rangos: no se suman pesos ni personas.</li>
+      <li><span class="text-emerald-400 font-bold">✓</span> Supresión: 10 unidades sin CIIU visible por reserva; no se publican municipios con menos de 30 unidades.</li>
+      <li><span class="text-emerald-400 font-bold">✓</span> Control: Σ rangos = total_count; ingresos nacionales $2.421 billones = cifra difundida por el DANE.</li>
+      <li><span class="text-emerald-400 font-bold">✓</span> El análisis es por municipio: la API no publica desagregación por localidad.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="bg-slate-950 border-t border-slate-800 text-center py-6 mt-12 text-slate-500 text-xs px-4">
+  <p>Fuente: DANE, Censo Económico Nacional Urbano (CENU) 2024 — API del Visor Interactivo (structural/general) y Visor Interactivo, consultados el 24-oct-2026. <strong class="text-slate-400">Resultados preliminares.</strong></p>
+  <p class="mt-1">DataJam CENU 2026 · Ruta 2 · Bogotá D.C.</p>
+</footer>
+
+<script>__CHARTJS__</script>
+<script>
+const D = __DATOS__;
+const K = {bajo: '#f43f5e', medio: '#475569', alto: '#38bdf8', bog: '#3b82f6', nac: '#64748b', grid: '#334155', tick: '#94a3b8', txt: '#f1f5f9'};
+Chart.defaults.font.family = "'Plus Jakarta Sans',system-ui,sans-serif";
+Chart.defaults.color = K.tick;
+const fmt = n => n.toLocaleString('es-CO');
+const pct = n => n.toLocaleString('es-CO', {minimumFractionDigits: 1, maximumFractionDigits: 1}) + ' %';
+const top10 = D.divs.slice(0, 10);
+const etq = d => 'Div ' + d.div + ': ' + (d.name.length > 30 ? d.name.slice(0, 29) + '…' : d.name);
+const leyenda = {labels: {color: K.txt, font: {size: 11}, boxWidth: 12}};
+
+// 1 · top 10 apiladas (horizontal) con selector
+const S = {ing: [['Bajo (0–10 M)', 'low', K.bajo], ['Medio (11–1.000 M)', 'mid', K.medio], ['Alto (>1.000 M)', 'high', K.alto]],
+           per: [['Bajo (1–5 personas)', 'lowP', K.bajo], ['Medio (6–50)', 'midP', K.medio], ['Alto (>50)', 'highP', K.alto]]};
+const g1 = new Chart(document.getElementById('g1'), {type: 'bar',
+  data: {labels: top10.map(etq), datasets: S.ing.map(s => ({label: s[0], data: top10.map(d => d[s[1]]), backgroundColor: s[2], borderColor: '#1e293b', borderWidth: 1.5, barPercentage: .78}))},
+  options: {indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+    plugins: {legend: leyenda, tooltip: {callbacks: {label: c => ` ${c.dataset.label}: ${pct(c.raw)}`}}},
+    scales: {x: {stacked: true, max: 100, grid: {color: K.grid}, ticks: {callback: v => v + ' %'}}, y: {stacked: true, grid: {display: false}, ticks: {font: {size: 11}}}}}});
+document.querySelectorAll('.tab').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => {x.classList.toggle('tab-on', x === b); x.classList.toggle('text-slate-300', x !== b);});
+  g1.data.datasets.forEach((ds, i) => {ds.label = S[b.dataset.v][i][0]; ds.data = top10.map(d => d[S[b.dataset.v][i][1]]);});
+  g1.update();
+});
+
+// 2 · Bogotá vs nacional
+new Chart(document.getElementById('g2'), {type: 'bar',
+  data: {labels: ['Ingreso 0–10 M', 'Ingreso >1.000 M', 'Personal 1–5', 'Personal >50'],
+    datasets: [{label: 'Bogotá D.C.', data: D.comp.bog, backgroundColor: K.bog, borderRadius: 6},
+               {label: 'Nacional', data: D.comp.nac, backgroundColor: K.nac, borderRadius: 6}]},
+  options: {responsive: true, maintainAspectRatio: false, plugins: {legend: leyenda, tooltip: {callbacks: {label: c => ` ${c.dataset.label}: ${pct(c.raw)}`}}},
+    scales: {x: {grid: {display: false}, ticks: {font: {size: 10}}}, y: {grid: {color: K.grid}, ticks: {callback: v => v + ' %'}}}},
+  plugins: [{id: 'v', afterDatasetsDraw(ch) {const {ctx} = ch; ctx.save(); ctx.font = '10px sans-serif'; ctx.fillStyle = K.txt; ctx.textAlign = 'center';
+    ch.data.datasets.forEach((ds, i) => ch.getDatasetMeta(i).data.forEach((b, j) => ctx.fillText(pct(ds.data[j]), b.x, b.y - 4))); ctx.restore();}}]});
+
+// 3 · cuadrantes
+const ref = {id: 'ref', afterDraw(ch) {
+  const {ctx, chartArea: a, scales: {x, y}} = ch; ctx.save(); ctx.setLineDash([5, 4]); ctx.strokeStyle = K.tick; ctx.lineWidth = 1;
+  const px = x.getPixelForValue(D.refBajo), py = y.getPixelForValue(D.refAlto);
+  ctx.beginPath(); ctx.moveTo(px, a.top); ctx.lineTo(px, a.bottom); ctx.moveTo(a.left, py); ctx.lineTo(a.right, py); ctx.stroke();
+  ctx.setLineDash([]); ctx.font = '10px sans-serif'; ctx.fillStyle = K.tick;
+  ctx.fillText('nacional ' + pct(D.refBajo), px + 4, a.top + 12); ctx.fillText('nacional ' + pct(D.refAlto), a.right - 86, py - 5);
+  const off = {'86': [-22, 4], '25': [6, -6]};
+  ch.data.datasets[0].data.forEach((p, i) => {const m = ch.getDatasetMeta(0).data[i]; const o = off[p.div] || [p.r * .7 + 3, 4];
+    ctx.fillStyle = K.txt; ctx.fillText(p.div, m.x + o[0], m.y + o[1]);});
+  ctx.restore();}};
+new Chart(document.getElementById('g5'), {type: 'bubble', plugins: [ref],
+  data: {datasets: [{data: D.divs.map(d => ({x: d.low, y: d.high, r: Math.max(5, Math.sqrt(d.units) / 9), div: d.div, name: d.name, units: d.units})),
+    backgroundColor: D.divs.map(d => d.high > D.refAlto ? 'rgba(56,189,248,.6)' : d.low >= 20 ? 'rgba(244,63,94,.6)' : 'rgba(148,163,184,.5)'),
+    borderColor: '#0f172a', borderWidth: 2}]},
+  options: {responsive: true, maintainAspectRatio: false, plugins: {legend: {display: false},
+    tooltip: {callbacks: {label: c => ` ${c.raw.div} ${c.raw.name}: bajo ${pct(c.raw.x)}, alto ${pct(c.raw.y)}, ${fmt(c.raw.units)} unidades`}}},
+    scales: {x: {title: {display: true, text: '% con ingreso 0–10 M', color: K.tick}, min: 5, max: 36, grid: {color: K.grid}},
+             y: {title: {display: true, text: '% con ingreso >1.000 M', color: K.tick}, min: 0, max: 40, grid: {color: K.grid}}}}});
+
+// 4 y 5 · personal e ingresos, Bogotá vs nacional
+function rangos(id, labels, bog, nac) {
+  new Chart(document.getElementById(id), {type: 'bar',
+    data: {labels, datasets: [{label: 'Bogotá D.C.', data: bog, backgroundColor: K.bog, borderRadius: 4},
+                              {label: 'Nacional', data: nac, backgroundColor: K.nac, borderRadius: 4}]},
+    options: {responsive: true, maintainAspectRatio: false, plugins: {legend: leyenda, tooltip: {callbacks: {label: c => ` ${c.dataset.label}: ${pct(c.raw)}`}}},
+      scales: {x: {grid: {display: false}, ticks: {font: {size: 9}, maxRotation: 45}}, y: {grid: {color: K.grid}, ticks: {callback: v => v + ' %'}}}}});
+}
+rangos('g3', D.rangosPer, D.bogPer, D.nacPer);
+rangos('g4', D.rangosIng, D.bogIng, D.nacIng);
+
+// tabla
+const badge = t => ({'Señal de subsistencia': 'bg-rose-500/20 text-rose-300', 'Base para escalar': 'bg-emerald-500/20 text-emerald-300',
+                     'Polarizado': 'bg-amber-500/20 text-amber-300'}[t] || 'bg-slate-500/20 text-slate-300');
+document.getElementById('tabla').innerHTML = D.divs.map((d, i) => `
+  <tr class="hover:bg-slate-700/50 ${i >= 10 ? 'opacity-60' : ''} ${i === 10 ? 'border-t-2 border-dashed border-slate-600' : ''}">
+    <td class="px-3 py-3 text-slate-500">${i + 1}</td><td class="px-3 py-3 font-bold text-white">${d.div}</td><td class="px-3 py-3">${d.name}</td>
+    <td class="px-3 py-3 text-right">${fmt(d.units)}</td><td class="px-3 py-3 text-right">${pct(d.pct)}</td>
+    <td class="px-3 py-3 text-right text-rose-400">${pct(d.low)}</td><td class="px-3 py-3 text-right text-sky-400">${pct(d.high)}</td>
+    <td class="px-3 py-3 text-right text-rose-300">${pct(d.lowP)}</td><td class="px-3 py-3 text-right text-sky-300">${pct(d.highP)}</td>
+    <td class="px-3 py-3 text-center"><span class="${badge(d.tipo)} px-2 py-0.5 rounded text-[10px] whitespace-nowrap">${d.tipo}</span></td></tr>`).join('');
+</script>
+</body>
+</html>
