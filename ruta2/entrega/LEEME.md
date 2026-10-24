@@ -7,6 +7,8 @@
 | `dashboard/dashboard_ruta2_claro.html` | La misma información en diseño claro. |
 | `ruta2_bogota_cifras_verificadas.xlsx` | Excel con cuadro top 10, Bogotá vs. nacional, rangos, controles y fuentes. |
 | `GUION_PRESENTACION.md` | Guion de 4 minutos y respuestas para el minuto de preguntas. |
+| `agente_voz/asistente_voz_cenu.html` | Página del asistente de voz (ElevenLabs): voz, chat de texto, preguntas sugeridas y tabla de datos. Necesita internet y permiso de micrófono. |
+| `agente_voz/` (prompt, base de conocimiento, LEEME) | Textos corregidos para configurar el agente en ElevenLabs. |
 
 **Salidas del notebook:** `ruta2_resultados.xlsx` (hojas `cuadro_top`, `rangos_detalle`, `divisiones`, `por_sector`, `bogota_vs_nacional`, `controles`), `ruta2_barras_apiladas.png`, `ruta2_cuadrantes.png`, `dashboard_data.js` y `ruta2_respuestas_api.json`.
 

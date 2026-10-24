@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asistente de Voz · CENU Ruta 2</title>
+<style>
+  :root{--bg:#0f172a;--bg2:#0b1220;--card:#1e293b;--line:#334155;--ink:#f1f5f9;--ink2:#cbd5e1;--ink3:#94a3b8;
+        --azul:#3b82f6;--cielo:#38bdf8;--rosa:#f43f5e;--ambar:#fbbf24;--verde:#34d399}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink2);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+  header{background:var(--bg2);border-bottom:1px solid #1f2a3d;padding:16px}
+  .wrap{max-width:1200px;margin:0 auto}
+  header .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+  h1{color:var(--ink);font-size:22px;margin:6px 0 0} h2{color:var(--ink);font-size:17px;margin:0 0 10px} h3{color:var(--ink);font-size:14px;margin:0 0 6px}
+  .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px;margin-right:6px}
+  .p-azul{background:#2563eb;color:#fff} .p-ambar{background:var(--ambar);color:#1f1500} .p-verde{background:rgba(52,211,153,.15);color:var(--verde);border:1px solid rgba(52,211,153,.4)}
+  main{padding:20px 16px 40px}
+  .grid{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .voz{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px}
+  .orbe{width:170px;height:170px;border-radius:50%;border:0;cursor:pointer;position:relative;
+        background:radial-gradient(circle at 35% 30%,#9ce6e6,#2792dc 55%,#1d4ed8);box-shadow:0 0 0 0 rgba(56,189,248,.5);
+        transition:transform .08s linear;color:#fff;font-weight:800;font-size:15px}
+  .orbe.activo{animation:pulso 1.6s infinite} @keyframes pulso{0%{box-shadow:0 0 0 0 rgba(56,189,248,.45)}100%{box-shadow:0 0 0 28px rgba(56,189,248,0)}}
+  .estado{font-size:14px;color:var(--ink3);min-height:22px} .estado b{color:var(--ink)}
+  .botones{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  button.b{border:1px solid var(--line);background:#0f172a;color:var(--ink);border-radius:10px;padding:8px 14px;font:inherit;font-size:13px;cursor:pointer}
+  button.b:hover{border-color:var(--cielo)} button.b:disabled{opacity:.4;cursor:not-allowed}
+  button.b.rojo{border-color:rgba(244,63,94,.5);color:#fda4af}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+  .chip{border:1px solid rgba(56,189,248,.35);background:rgba(56,189,248,.08);color:#bae6fd;border-radius:99px;padding:6px 12px;font-size:12.5px;cursor:pointer}
+  .chip:hover{background:rgba(56,189,248,.18)}
+  .chat{height:330px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;padding:12px;background:var(--bg2);border:1px solid #1f2a3d;border-radius:12px}
+  .msg{max-width:88%;padding:8px 12px;border-radius:12px;font-size:14px;white-space:pre-wrap}
+  .msg.agent{background:#1e3a5f;color:#e0f2fe;align-self:flex-start;border-top-left-radius:4px}
+  .msg.user{background:#334155;color:var(--ink);align-self:flex-end;border-top-right-radius:4px}
+  .msg.sys{align-self:center;background:transparent;color:var(--ink3);font-size:12px;text-align:center}
+  .entrada{display:flex;gap:8px;margin-top:10px} .entrada input{flex:1;min-width:0;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;color:var(--ink);font:inherit}
+  .kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .kpi{background:var(--bg2);border:1px solid #1f2a3d;border-radius:12px;padding:10px 12px}
+  .kpi .v{font-size:22px;font-weight:800;color:var(--ink)} .kpi .l{font-size:11.5px;color:var(--ink3)}
+  table{width:100%;border-collapse:collapse;font-size:12.5px} th,td{padding:6px 5px;border-bottom:1px solid #26344b;text-align:right;white-space:nowrap}
+  th{color:var(--ink3);font-weight:600;text-transform:uppercase;font-size:10.5px;letter-spacing:.04em} th:nth-child(-n+2),td:nth-child(-n+2),td:last-child{text-align:left}
+  td.n{white-space:normal} .scroll{overflow-x:auto}
+  .t-sub{color:#fda4af} .t-esc{color:#7dd3fc} .t-pol{color:var(--ambar)} .t-int{color:var(--ink3)}
+  ul.l{margin:0;padding-left:18px;font-size:13.5px} ul.l li{margin:4px 0}
+  .aviso{font-size:12px;color:var(--ink3)} .err{color:#fda4af;font-size:13px}
+  a{color:var(--cielo)}
+  footer{color:#64748b;font-size:12px;text-align:center;padding:16px}
+  @media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:600px){.c5{display:none} table{font-size:11.5px} th,td{padding:6px 3px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div>
+    <span class="pill p-azul">DataJam CENU 2026 · Ruta 2 · Grupo 07</span><span class="pill p-ambar">Resultados preliminares</span><span class="pill p-verde">🎙️ Asistente de voz</span>
+    <h1>Pregúntale a los datos: economía real de Bogotá D.C.</h1>
+    <div class="aviso">CENU 2024 (DANE) · año de referencia 2023 · módulo sectoral_reference_2023 · 195.755 unidades económicas</div>
+  </div>
+</div></header>
+
+<main class="wrap">
+<div class="grid">
+  <!-- Columna izquierda: el agente -->
+  <section class="card">
+    <div class="voz">
+      <button id="orbe" class="orbe" aria-label="Hablar con el asistente">Toca para<br>hablar</button>
+      <div id="estado" class="estado">Listo. Toca el círculo para hablar o escribe abajo.</div>
+      <div class="botones">
+        <button id="btnMute" class="b" disabled>🔇 Silenciar micrófono</button>
+        <button id="btnFin" class="b rojo" disabled>⏹ Terminar conversación</button>
+      </div>
+      <div id="error" class="err" role="alert"></div>
+    </div>
+    <h3 style="margin-top:16px">Preguntas sugeridas</h3>
+    <div class="chips" id="chips"></div>
+    <h3 style="margin-top:16px">Conversación</h3>
+    <div id="chat" class="chat" aria-live="polite"><div class="msg sys">La transcripción aparecerá aquí.</div></div>
+    <form id="form" class="entrada">
+      <input id="texto" type="text" placeholder="Escribe tu pregunta (funciona también sin micrófono)…" autocomplete="off">
+      <button class="b" type="submit">Enviar</button>
+    </form>
+    <p class="aviso" style="margin:12px 0 0">¿No funciona? Revisa el permiso del micrófono del navegador (Chrome o Edge) y la conexión a internet.
+      Alternativas: <a href="https://elevenlabs.io/app/talk-to?agent_id=__AGENT_ID__" target="_blank" rel="noopener">página pública del agente en ElevenLabs</a>
+      · <button id="btnWidget" class="b" style="padding:3px 8px;font-size:12px">usar el widget oficial</button></p>
+  </section>
+
+  <!-- Columna derecha: lo que sabe el agente -->
+  <section style="display:flex;flex-direction:column;gap:20px;min-width:0">
+    <div class="card">
+      <h2>Lo que sabe el asistente</h2>
+      <div class="kpis">
+        <div class="kpi"><div class="v">57,2 %</div><div class="l">de las unidades son comercio (div. 45–47)</div></div>
+        <div class="kpi"><div class="v">81,7 %</div><div class="l">en las 10 divisiones más grandes</div></div>
+        <div class="kpi"><div class="v">48,8 %</div><div class="l">de los ingresos 2023 del país, con el 18,5 % de las unidades</div></div>
+        <div class="kpi"><div class="v" style="color:#fda4af">17,4 %</div><div class="l">ingreso 0–10 M (país 23,8 %)</div></div>
+        <div class="kpi"><div class="v" style="color:#7dd3fc">10,7 %</div><div class="l">ingreso &gt;1.000 M (país 6,1 %)</div></div>
+        <div class="kpi"><div class="v">82,8 %</div><div class="l">con 1–5 personas (país 87,9 %)</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Top 12 divisiones CIIU</h2>
+      <div class="scroll"><table>
+        <thead><tr><th>Div.</th><th>Actividad</th><th>Unidades</th><th>% ing. bajo</th><th>% ing. alto</th><th class="c5">% 1–5 pers.</th><th style="text-align:left">Tipología</th></tr></thead>
+        <tbody id="tabla"></tbody>
+      </table></div>
+      <p class="aviso" style="margin:8px 0 0">% sobre las unidades que respondieron. Bajo: 0–10 M · Alto: &gt;1.000 M. Un rango bajo es una señal, no una prueba.</p>
+    </div>
+    <div class="card">
+      <h2>Lectura y recomendación</h2>
+      <ul class="l">
+        <li><b class="t-sub">Señal de subsistencia:</b> 95 reparación, 96 servicios personales y 47 comercio al por menor. Suman 106.718 unidades (54,5 %).</li>
+        <li><b class="t-esc">Base para escalar:</b> 46 mayoristas (36,1 % &gt;1.000 M), 10 alimentos, 52 almacenamiento, 85 educación, 25 metalmecánica, 86 salud.</li>
+        <li><b>Política:</b> formalizar sin ahogar (Régimen Simple, microcrédito, pagos digitales); encadenar mayoristas (46) con tiendas (47); capital semilla y crédito productivo en las divisiones con base para escalar.</li>
+        <li><b>Límites:</b> resultados preliminares; datos de Bogotá completa (no por localidad).</li>
+      </ul>
+    </div>
+  </section>
+</div>
+</main>
+<footer>Fuente: DANE, Censo Económico Nacional Urbano (CENU) 2024 — API del Visor Interactivo, consultada el 24-oct-2026. Resultados preliminares. Asistente: ElevenLabs Conversational AI.</footer>
+
+<script>__SDK__</script>
+<script>
+const AGENT_ID = "__AGENT_ID__";
+const DIVS = __DIVS__;
+const PREGUNTAS = ["¿Cuántas unidades económicas tiene Bogotá?", "¿Cómo se distribuye la economía de Bogotá?",
+  "¿Dónde hay más oportunidades para emprender?", "¿Qué divisiones muestran señal de subsistencia?",
+  "¿Cómo está el comercio al por mayor?", "¿Cómo se compara Bogotá con el país?",
+  "¿Qué recomiendan para la política local?", "¿Por qué los datos son preliminares?"];
+
+const $ = id => document.getElementById(id);
+const fmt = n => n.toLocaleString("es-CO");
+const pct = n => n.toLocaleString("es-CO", {minimumFractionDigits: 1, maximumFractionDigits: 1});
+const clase = t => ({"Señal de subsistencia": "t-sub", "Base para escalar": "t-esc", "Polarizado": "t-pol"}[t] || "t-int");
+$("tabla").innerHTML = DIVS.map(d => `<tr><td><b>${d.div}</b></td><td class="n">${d.name}</td><td>${fmt(d.units)}</td>
+  <td>${pct(d.low)}</td><td>${pct(d.high)}</td><td class="c5">${pct(d.lowP)}</td><td class="${clase(d.tipo)}">${d.tipo_corto}</td></tr>`).join("");
+$("chips").innerHTML = PREGUNTAS.map(q => `<button class="chip" type="button">${q}</button>`).join("");
+
+let conv = null, modo = null, muted = false, ultimoUsuario = "", raf = null;
+
+function agregar(rol, texto) {
+  if (!texto) return;
+  const chat = $("chat");
+  if (chat.firstElementChild && chat.firstElementChild.classList.contains("sys") && chat.children.length === 1) chat.innerHTML = "";
+  const div = document.createElement("div");
+  div.className = "msg " + rol;
+  div.textContent = texto.replace(/\[[a-z ]+\]\s*/gi, "");   // quita etiquetas de audio como [warmly]
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+function estado(html) { $("estado").innerHTML = html; }
+function error(msg) { $("error").textContent = msg || ""; }
+function ui() {
+  const activo = !!conv;
+  $("orbe").classList.toggle("activo", activo && modo === "voz");
+  $("orbe").innerHTML = activo && modo === "voz" ? "Conversando…<br>toca para terminar" : "Toca para<br>hablar";
+  $("btnFin").disabled = !activo;
+  $("btnMute").disabled = !(activo && modo === "voz");
+  $("btnMute").textContent = muted ? "🎙️ Activar micrófono" : "🔇 Silenciar micrófono";
+}
+function animar() {
+  const o = $("orbe");
+  if (conv && modo === "voz") {
+    let v = 0;
+    try { v = Math.max(conv.getOutputVolume ? conv.getOutputVolume() : 0, conv.getInputVolume ? conv.getInputVolume() : 0); } catch (e) {}
+    o.style.transform = `scale(${1 + Math.min(v, 1) * 0.25})`;
+    raf = requestAnimationFrame(animar);
+  } else { o.style.transform = "scale(1)"; raf = null; }
+}
+
+async function iniciar(voz) {
+  if (conv) return conv;
+  if (!window.ElevenLabsClient) { error("No se pudo cargar el SDK de ElevenLabs."); return null; }
+  error(""); estado("<b>Conectando…</b>");
+  try {
+    if (voz) await navigator.mediaDevices.getUserMedia({audio: true});
+    conv = await ElevenLabsClient.Conversation.startSession({
+      agentId: AGENT_ID,
+      connectionType: "websocket",
+      textOnly: !voz,
+      onConnect: () => { estado(voz ? "<b>Conectado.</b> Habla cuando quieras." : "<b>Conectado</b> en modo texto."); },
+      onDisconnect: () => { conv = null; modo = null; muted = false; ui(); estado("Conversación terminada. Toca el círculo para empezar otra."); },
+      onError: (m) => { error("Error: " + m); },
+      onModeChange: ({mode}) => { if (modo === "voz") estado(mode === "speaking" ? "🔊 <b>El asistente está hablando…</b>" : "🎙️ <b>Te escucho…</b>"); },
+      onMessage: ({message, role, source}) => {
+        const r = role || (source === "ai" ? "agent" : "user");
+        if (r === "user" && message.trim() === ultimoUsuario) { ultimoUsuario = ""; return; }   // ya se mostró al escribirla
+        agregar(r === "user" ? "user" : "agent", message);
+      },
+    });
+    modo = voz ? "voz" : "texto";
+    ui();
+    if (voz) animar();
+    return conv;
+  } catch (e) {
+    conv = null; modo = null; ui();
+    const m = String(e && e.message || e);
+    error(/Permission|NotAllowed|denied/i.test(m)
+      ? "El navegador no dio permiso al micrófono. Actívalo en el candado de la barra de direcciones o escribe tu pregunta."
+      : "No se pudo conectar con el asistente (" + m + "). Revisa la conexión a internet.");
+    estado("Listo. Toca el círculo para hablar o escribe abajo.");
+    return null;
+  }
+}
+async function terminar() { if (conv) { try { await conv.endSession(); } catch (e) {} conv = null; modo = null; ui(); } }
+async function preguntar(texto) {
+  texto = texto.trim(); if (!texto) return;
+  const c = conv || await iniciar(false);
+  if (!c) return;
+  agregar("user", texto); ultimoUsuario = texto;
+  try { c.sendUserMessage(texto); } catch (e) { error("No se pudo enviar el mensaje: " + e.message); }
+}
+
+$("orbe").onclick = () => conv && modo === "voz" ? terminar() : (conv ? terminar().then(() => iniciar(true)) : iniciar(true));
+$("btnFin").onclick = terminar;
+$("btnMute").onclick = () => { if (conv && conv.setMicMuted) { muted = !muted; conv.setMicMuted(muted); ui(); } };
+$("form").onsubmit = (e) => { e.preventDefault(); const t = $("texto").value; $("texto").value = ""; preguntar(t); };
+$("chips").onclick = (e) => { if (e.target.classList.contains("chip")) preguntar(e.target.textContent); };
+$("btnWidget").onclick = async () => {
+  await terminar();
+  if (!document.querySelector("elevenlabs-convai")) {
+    const w = document.createElement("elevenlabs-convai"); w.setAttribute("agent-id", AGENT_ID); document.body.appendChild(w);
+    const s = document.createElement("script"); s.src = "https://unpkg.com/@elevenlabs/convai-widget-embed@0.19.0"; s.async = true; document.body.appendChild(s);
+  }
+  estado("Widget oficial cargado: búscalo abajo a la derecha.");
+};
+window.addEventListener("beforeunload", () => { if (conv) conv.endSession(); });
+ui();
+</script>
+</body>
+</html>
