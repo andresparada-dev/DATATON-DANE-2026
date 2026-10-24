@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Económico · Bogotá CENU 2023 (Ruta 2)</title>
+    <!-- Tailwind CSS y Chart.js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen">
+
+    <!-- Header Principal -->
+    <header class="bg-slate-950 border-b border-slate-800 sticky top-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <span class="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Datathon DANE CENU 2026 · Ruta 2</span>
+                <h1 class="text-2xl font-bold mt-1 text-white tracking-tight">Radiografía Estructural de Bogotá D.C.</h1>
+            </div>
+            <div class="mt-2 md:mt-0 text-right">
+                <p class="text-xs text-slate-400">Universo analizado:</p>
+                <p class="text-lg font-bold text-blue-400">195.755 Unidades Económicas</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido del Dashboard -->
+    <main class="max-w-7xl mx-auto px-6 py-8 space-y-8">
+
+        <!-- Tarjetas de Métricas Clave (KPIs) -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl">
+                <p class="text-xs uppercase font-semibold text-slate-400">Ingreso Promedio Anual</p>
+                <p class="text-3xl font-extrabold text-white mt-2">$7.422M</p>
+                <p class="text-xs text-emerald-400 mt-1 font-medium">↑ Superior al promedio nacional</p>
+            </div>
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl">
+                <p class="text-xs uppercase font-semibold text-slate-400">Micronegocios (1-5 pers.)</p>
+                <p class="text-3xl font-extrabold text-amber-400 mt-2">82.8%</p>
+                <p class="text-xs text-slate-400 mt-1 font-medium">Estructura de subsistencia</p>
+            </div>
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl">
+                <p class="text-xs uppercase font-semibold text-slate-400">Comercio y Alimentos</p>
+                <p class="text-3xl font-extrabold text-blue-400 mt-2">59.1%</p>
+                <p class="text-xs text-slate-400 mt-1 font-medium">Del total de unidades de la ciudad</p>
+            </div>
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl">
+                <p class="text-xs uppercase font-semibold text-slate-400">Bajo Ingreso (0-10M)</p>
+                <p class="text-3xl font-extrabold text-rose-400 mt-2">17.4%</p>
+                <p class="text-xs text-emerald-400 mt-1 font-medium">Menor que el 23.8% nacional</p>
+            </div>
+        </div>
+
+        <!-- Sección de Gráficos Principales -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Gráfico 1: Top 5 Divisiones (Barras Apiladas) -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-white">Top 5 Divisiones CIIU: Estructura de Ingresos</h2>
+                    <p class="text-xs text-slate-400 mt-1">Distribución porcentual entre rangos bajos, medios y altos en las actividades principales.</p>
+                </div>
+                <div class="relative h-80 my-4">
+                    <canvas id="barrasApiladasChart"></canvas>
+                </div>
+                <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+                    <p class="text-xs text-slate-300">💡 <strong>Insight:</strong> Las divisiones comerciales muestran una concentración masiva en franjas de menor facturación, confirmando la alta presencia de comercio minorista tradicional.</p>
+                </div>
+            </div>
+
+            <!-- Gráfico 2: Bogotá vs Nacional -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-white">Bogotá vs. Promedio Nacional</h2>
+                    <p class="text-xs text-slate-400 mt-1">Comparativa estructural de indicadores clave frente al total del país.</p>
+                </div>
+                <div class="relative h-80 my-4">
+                    <canvas id="bogotaNacChart"></canvas>
+                </div>
+                <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+                    <p class="text-xs text-slate-300">💡 <strong>Insight:</strong> Bogotá posee una proporción menor de unidades en rangos bajos de ingresos (17.4% vs 23.8%) y mayor participación en rangos altos.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Segunda Fila de Gráficos -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Gráfico 3: Personal Ocupado -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-white">Radiografía del Empleo (Personal Ocupado)</h2>
+                    <p class="text-xs text-slate-400 mt-1">Porcentaje de unidades económicas según número de personas ocupadas.</p>
+                </div>
+                <div class="relative h-72 my-4">
+                    <canvas id="personalChart"></canvas>
+                </div>
+                <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+                    <p class="text-xs text-slate-300">💡 <strong>Insight:</strong> El 82.8% de los establecimientos opera estrictamente con microequipos de 1 a 5 personas.</p>
+                </div>
+            </div>
+
+            <!-- Gráfico 4: Rangos de Ingresos -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+                <div>
+                    <h2 class="text-lg font-bold text-white">Distribución por Rangos de Ingresos Anuales</h2>
+                    <p class="text-xs text-slate-400 mt-1">Concentración de unidades según su nivel de facturación reportada.</p>
+                </div>
+                <div class="relative h-72 my-4">
+                    <canvas id="ingresosChart"></canvas>
+                </div>
+                <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-700/50">
+                    <p class="text-xs text-slate-300">💡 <strong>Insight:</strong> Casi la mitad de la economía urbana (49.8%) se concentra en los dos primeros tramos de ingresos anuales (0 a 50 millones).</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tabla Resumen del Top 5 -->
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-xl">
+            <h2 class="text-lg font-bold text-white mb-4">Tabla Resumen: Principales Divisiones CIIU en Bogotá</h2>
+            <div class="overflow-x-auto">
+                <table class="w-auto text-left text-xs text-slate-300">
+                    <thead class="bg-slate-900 text-slate-400 uppercase tracking-wider">
+                        <tr>
+                            <th class="px-4 py-3">División</th>
+                            <th class="px-4 py-3">Nombre del Sector</th>
+                            <th class="px-4 py-3 text-right">Unidades</th>
+                            <th class="px-4 py-3 text-right">% Ingreso Bajo</th>
+                            <th class="px-4 py-3 text-right">% Ingreso Alto</th>
+                            <th class="px-4 py-3 text-center">Tipología CENU</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-700">
+                        <tr class="hover:bg-slate-700/50">
+                            <td class="px-4 py-3 font-bold text-white">47</td>
+                            <td class="px-4 py-3">Comercio al por menor</td>
+                            <td class="px-4 py-3 text-right">92.335</td>
+                            <td class="px-4 py-3 text-right text-rose-400">20.1%</td>
+                            <td class="px-4 py-3 text-right text-emerald-400">3.3%</td>
+                            <td class="px-4 py-3 text-center"><span class="bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded text-[10px]">Subsistencia</span></td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/50">
+                            <td class="px-4 py-3 font-bold text-white">56</td>
+                            <td class="px-4 py-3">Servicios de comida y bebida</td>
+                            <td class="px-4 py-3 text-right">23.357</td>
+                            <td class="px-4 py-3 text-right text-rose-400">14.6%</td>
+                            <td class="px-4 py-3 text-right text-emerald-400">2.5%</td>
+                            <td class="px-4 py-3 text-center"><span class="bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded text-[10px]">Intermedio</span></td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/50">
+                            <td class="px-4 py-3 font-bold text-white">45</td>
+                            <td class="px-4 py-3">Comercio y reparación de vehículos y motos</td>
+                            <td class="px-4 py-3 text-right">11.089</td>
+                            <td class="px-4 py-3 text-right text-rose-400">16.1%</td>
+                            <td class="px-4 py-3 text-right text-emerald-400">6.0%</td>
+                            <td class="px-4 py-3 text-center"><span class="bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded text-[10px]">Intermedio</span></td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/50">
+                            <td class="px-4 py-3 font-bold text-white">96</td>
+                            <td class="px-4 py-3">Otros servicios personales (peluquería, etc.)</td>
+                            <td class="px-4 py-3 text-right">9.125</td>
+                            <td class="px-4 py-3 text-right text-rose-400">22.9%</td>
+                            <td class="px-4 py-3 text-right text-emerald-400">0.8%</td>
+                            <td class="px-4 py-3 text-center"><span class="bg-rose-500/20 text-rose-300 px-2 py-0.5 rounded text-[10px]">Subsistencia</span></td>
+                        </tr>
+                        <tr class="hover:bg-slate-700/50">
+                            <td class="px-4 py-3 font-bold text-white">46</td>
+                            <td class="px-4 py-3">Comercio al por mayor</td>
+                            <td class="px-4 py-3 text-right">8.592</td>
+                            <td class="px-4 py-3 text-right text-rose-400">10.1%</td>
+                            <td class="px-4 py-3 text-right text-emerald-400">36.1%</td>
+                            <td class="px-4 py-3 text-center"><span class="bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded text-[10px]">Base para escalar</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-center py-6 mt-12 text-slate-500 text-xs">
+        <p>Datathon DANE CENU 2026 · Análisis Estructural de Bogotá D.C. (Ruta 2) · Fuentes oficiales DANE</p>
+    </footer>
+
+    <!-- Scripts de inicialización de Chart.js -->
+    <script>
+        // Gráfico 1: Barras Apiladas Top 5
+        const ctxBar = document.getElementById('barrasApiladasChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ["Div 47: Comercio al por menor...", "Div 56: Servicios de comida y beb...", "Div 45: Comercio y reparaci\u00f3n de ...", "Div 96: Otros servicios personale...", "Div 46: Comercio al por mayor..."],
+                datasets: [
+                    {
+                        label: 'Ingreso Bajo (0-10M)',
+                        data: [20.1, 14.6, 16.1, 22.9, 10.1],
+                        backgroundColor: '#f43f5e',
+                    },
+                    {
+                        label: 'Ingreso Medio',
+                        data: [76.6, 82.9, 77.9, 76.3, 53.8],
+                        backgroundColor: '#38bdf8',
+                    },
+                    {
+                        label: 'Ingreso Alto (>1000M)',
+                        data: [3.3, 2.5, 6.0, 0.8, 36.1],
+                        backgroundColor: '#10b981',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { stacked: true, grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 10 } } },
+                    y: { stacked: true, grid: { color: '#334155' }, ticks: { color: '#94a3b8' } }
+                },
+                plugins: {
+                    legend: { labels: { color: '#f1f5f9', font: { size: 11 } } }
+                }
+            }
+        });
+
+        // Gráfico 2: Bogotá vs Nacional
+        const ctxBnk = document.getElementById('bogotaNacChart').getContext('2d');
+        new Chart(ctxBnk, {
+            type: 'bar',
+            data: {
+                labels: ['Ingreso 0-10M (%)', 'Ingreso >1000M (%)', 'Personal 1-5 (%)', 'Personal >50 (%)'],
+                datasets: [
+                    {
+                        label: 'Bogotá D.C.',
+                        data: [17.4, 10.7, 82.8, 3.7],
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 6
+                    },
+                    {
+                        label: 'Nacional',
+                        data: [23.8, 6.1, 87.9, 2.0],
+                        backgroundColor: '#64748b',
+                        borderRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 10 } } },
+                    y: { grid: { color: '#334155' }, ticks: { color: '#94a3b8' } }
+                },
+                plugins: {
+                    legend: { labels: { color: '#f1f5f9', font: { size: 11 } } }
+                }
+            }
+        });
+
+        // Gráfico 3: Personal Ocupado
+        const ctxPers = document.getElementById('personalChart').getContext('2d');
+        new Chart(ctxPers, {
+            type: 'doughnut',
+            data: {
+                labels: ["1 - 5", "6 - 10", "11 - 20", "21 - 50", "51 - 100", "101 - 500", "501+"],
+                datasets: [{
+                    data: [82.8, 7.21, 3.6, 2.68, 1.44, 1.65, 0.62],
+                    backgroundColor: ['#f59e0b', '#3b82f6', '#10b981', '#8b5cf6', '#ec4899', '#64748b', '#06b6d4'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right', labels: { color: '#f1f5f9', font: { size: 10 } } }
+                }
+            }
+        });
+
+        // Gráfico 4: Ingresos Anuales
+        const ctxIng = document.getElementById('ingresosChart').getContext('2d');
+        new Chart(ctxIng, {
+            type: 'bar',
+            data: {
+                labels: ["0 - 10 M", "11 - 50 M", "51 - 100 M", "101 - 500 M", "501 - 1.000 M", "1.001 - 5.000 M", "5.001 - 10.000 M", "10.001 - 100.000 M", "> 100.000 M", "0 - 10 M", "11 - 50 M", "51 - 100 M", "101 - 500 M", "501 - 1.000 M", "1.001 - 5.000 M", "5.001 - 10.000 M", "10.001 - 100.000 M", "> 100.000 M", "0 - 10 M", "11 - 50 M", "51 - 100 M", "101 - 500 M", "501 - 1.000 M", "1.001 - 5.000 M", "5.001 - 10.000 M", "10.001 - 100.000 M", "> 100.000 M", "0 - 10 M", "11 - 50 M", "51 - 100 M", "101 - 500 M", "501 - 1.000 M", "1.001 - 5.000 M", "5.001 - 10.000 M", "10.001 - 100.000 M", "> 100.000 M"],
+                datasets: [{
+                    label: '% de Unidades Económicas',
+                    data: [17.4, 32.4, 16.0, 19.9, 3.8, 5.2, 1.7, 3.1, 0.7, 36.3, 33.5, 11.5, 12.7, 2.3, 2.6, 0.5, 0.5, 0.1, 56.4, 25.6, 6.9, 7.6, 1.6, 1.5, 0.2, 0.3, 0.1, 51.1, 28.1, 6.3, 6.8, 1.9, 3.1, 0.8, 1.2, 0.7],
+                    backgroundColor: '#0ea5e9',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: '#94a3b8', font: { size: 9 } } },
+                    y: { grid: { color: '#334155' }, ticks: { color: '#94a3b8' } }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

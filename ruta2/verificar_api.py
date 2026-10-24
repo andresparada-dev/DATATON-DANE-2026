@@ -18,6 +18,7 @@ Salida: tabla en pantalla con ✅ / ❌, resumen "N de M valores correctos" y ve
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import unicodedata
 from pathlib import Path
@@ -90,8 +91,17 @@ def leer_html(ruta: str, divisiones_api: pd.DataFrame) -> pd.DataFrame | None:
     html = Path(ruta).read_text(encoding="utf-8")
     m = re.search(r"const data = \[(.*?)\];", html, flags=re.S)
     if not m:
-        print("HTML: no se encontró `const data = [...]`")
-        return None
+        d = re.search(r"const D = (\{.*?\});\n", html, flags=re.S)   # dashboard_ruta2_final.html
+        if not d:
+            print("HTML: no se encontró `const data = [...]` ni `const D = {...}`")
+            return None
+        divs = json.loads(d.group(1))["divs"]
+        t = pd.DataFrame([{"division": int(x["div"]), "unidades": x["units"], "pct_bajo_ingreso": x["low"],
+                           "pct_alto_ingreso": x["high"], "pct_bajo_personal": x["lowP"], "pct_alto_personal": x["highP"]}
+                          for x in divs])
+        t.insert(0, "fuente", "HTML")
+        print(f"HTML: {len(t)} divisiones en const D")
+        return t
     filas = []
     for obj in re.findall(r"\{(.*?)\}", m.group(1), flags=re.S):
         campo = lambda k: (re.search(rf"\b{k}\s*:\s*(\"[^\"]*\"|[-\d.]+)", obj) or [None, None])[1]  # noqa: E731
