@@ -309,6 +309,7 @@ def main():
     xlsx = out / "ruta2_resultados.xlsx"
     with pd.ExcelWriter(xlsx) as w:
         top10.round(2).to_excel(w, sheet_name="cuadro_top", index=False)
+        cuadro.round(2).to_excel(w, sheet_name="cuadro_completo", index=False)
         rangos.round(2).to_excel(w, sheet_name="rangos_detalle", index=False)
         divs.round(2).to_excel(w, sheet_name="divisiones", index=False)
         por_sector.round(2).to_excel(w, sheet_name="por_sector", index=False)

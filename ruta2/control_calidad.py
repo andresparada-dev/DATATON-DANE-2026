@@ -32,7 +32,31 @@ BOGOTA_TOTAL = 195_745
 BOGOTA_IND: dict[int, tuple[float, float]] = {}
 
 
-def leer_pais(ruta: str) -> dict:
+def descargar_pais() -> dict:
+    """Consulta nacional (granularity=country) de las 3 variables de la Ruta 2 directamente a la API."""
+    import requests
+    from ruta2_bogota import BASE, MODULO
+    variables = ["ciiu_division", "total_income_2023", "total_employed_personnel"]
+    ultimo = None
+    for body in ({"module": MODULO, "variables": variables, "granularity": "country"},
+                 {"module": MODULO, "variables": variables, "granularity": "country", "variable_filters": {}},
+                 {"module": MODULO, "variables": variables}):
+        r = requests.post(f"{BASE}/structural/general", json=body, timeout=180)
+        ultimo = (r.status_code, r.text[:300])
+        if r.ok:
+            j = r.json()
+            pais = j.get("pais") or j.get("country")
+            if isinstance(pais, dict) and "ciiu_division" in pais:
+                print("Datos nacionales descargados de la API con body:", body)
+                return pais
+    raise RuntimeError(f"No se pudo descargar el nivel nacional: {ultimo}. Sube el Excel de la API y pasa su nombre.")
+
+
+def leer_pais(ruta: str | None) -> dict:
+    if not ruta or not Path(ruta).exists():
+        if ruta:
+            print(f"No existe {ruta}; se descargan los datos nacionales desde la API.")
+        return descargar_pais()
     df = pd.read_excel(ruta)
     celda = df["pais"].dropna().iloc[0]
     return celda if isinstance(celda, dict) else ast.literal_eval(celda)
@@ -40,7 +64,7 @@ def leer_pais(ruta: str) -> dict:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("excel_api")
+    ap.add_argument("excel_api", nargs="?", default=None, help="Excel con la respuesta nacional (opcional)")
     ap.add_argument("--salida", default=".")
     ap.add_argument("--bogota", default=None, help="ruta2_resultados.xlsx (salida corregida de ruta2_bogota.py)")
     a = ap.parse_args()
