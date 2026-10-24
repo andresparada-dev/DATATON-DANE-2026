@@ -33,7 +33,8 @@ from pathlib import Path
 import pandas as pd
 import requests
 
-BASE = "https://censoeconomiconacionalurbano.dane.gov.co/backend"
+BASE = "https://censoeconomiconacionalurbano.dane.gov.co/backend/api/v1"
+OPENAPI = "https://censoeconomiconacionalurbano.dane.gov.co/backend/openapi.json"
 MODULO = "sectoral_reference_2023"
 BOGOTA = "11001"          # DIVIPOLA municipio Bogotá D.C. (departamento 11)
 
@@ -114,7 +115,7 @@ def limites(desc) -> tuple[float, float]:
     elif max(nums) >= 100_000:          # viene en pesos
         escala = 1e-6
     nums = [n * escala for n in nums]
-    if any(k in d for k in ("mas de", "mayor", "superior", "o mas", "y mas", ">")):
+    if any(k in d for k in ("mas de", "mayor", "superior", "o mas", "y mas", ">", "+")):
         return (nums[0], float("inf")) if len(nums) == 1 else (nums[0], nums[-1])
     if any(k in d for k in ("menos de", "hasta", "menor", "<")) and len(nums) == 1:
         return (0.0, nums[0])
@@ -129,7 +130,7 @@ def clasificar_rango(desc, variable: str) -> str:
     if variable == "ingreso":
         bajo_max, alto_min = 10.0, 1000.0
     else:
-        bajo_max, alto_min = 5.0, 50.0
+        bajo_max, alto_min = 5.0, 51.0          # "más de 50 personas"
     if hi == hi and hi <= bajo_max + 1e-9:
         return "bajo"
     if lo == lo and lo >= alto_min - 1e-9 and lo > bajo_max:
@@ -139,199 +140,79 @@ def clasificar_rango(desc, variable: str) -> str:
 
 # ---------------------------------------------------------------- cliente API
 class CENU:
+    """Cliente de la API del Visor Interactivo del CENU (contrato de openapi.json).
+
+    POST {BASE}/structural/general
+      body: {"module": "sectoral_reference_2023", "variables": [...],
+             "variable_filters": {"municipality_ids": ["11001"], "ciiu_division": ["47"]}}
+      (granularity solo acepta "country" o null; el esquema rechaza campos desconocidos)
+    GET  {BASE}/structural/modules-universes
+    Respuesta: municipios -> "11001" -> variables -> <variable> -> values
+      categóricas: {codigo, descripcion, conteo} · rangos: {code, description, value}
+    """
+
     def __init__(self, base=BASE, debug=False):
         self.base, self.debug = base.rstrip("/"), debug
         self.s = requests.Session()
         self.s.headers.update({"Accept": "application/json", "Content-Type": "application/json",
                                "User-Agent": "datajam-cenu-2026-ruta2"})
-        self.payload_ok = None
-        self.url_ok = None
-        self.spec, self.esquema = None, {}
         self.log = []
 
-    # ---- rutas: se leen de openapi.json (el prefijo real puede no ser /backend/...)
-    def _urls(self, sufijo):
-        """URLs candidatas para una ruta, según openapi.json (servers + paths) y la base."""
-        from urllib.parse import urlsplit
-        host = "{0.scheme}://{0.netloc}".format(urlsplit(self.base))
-        paths = [p for p in (self.spec or {}).get("paths", {}) if p.rstrip("/").endswith(sufijo)]
-        servers = [sv.get("url", "") for sv in (self.spec or {}).get("servers", [])] or [""]
-        cands = []
-        for p in paths or ["/" + sufijo]:
-            for sv in servers:
-                if sv.startswith("http"):
-                    cands.append(sv.rstrip("/") + p)
-                elif sv:
-                    cands.append(host + "/" + sv.strip("/") + p)
-            cands += [self.base + p, host + p]
-        vistos = []
-        for c in cands:
-            if c not in vistos:
-                vistos.append(c)
-        return vistos
-
     def get(self, ruta, **params):
-        ultimo = None
-        for url in ([f"{self.base}/{ruta}"] if ruta == "openapi.json" else self._urls(ruta)):
-            r = self.s.get(url, params=params, timeout=90)
-            if r.status_code == 404:
-                ultimo = r
-                continue
-            r.raise_for_status()
-            return r.json()
-        ultimo.raise_for_status()
+        r = self.s.get(f"{self.base}/{ruta.lstrip('/')}", params=params, timeout=90)
+        r.raise_for_status()
+        return r.json()
 
-    def post(self, url, body):
+    def post(self, ruta, body):
         for intento in range(4):
             try:
-                r = self.s.post(url, json=body, timeout=120)
+                r = self.s.post(f"{self.base}/{ruta.lstrip('/')}", json=body, timeout=120)
                 if r.status_code in (429, 502, 503, 504):
                     time.sleep(2 ** (intento + 1))
                     continue
                 return r
             except requests.RequestException:
                 time.sleep(2 ** (intento + 1))
-        raise RuntimeError(f"La API no respondió a {url} (¿saturada? usar respaldo CSV del equipo DICE)")
+        raise RuntimeError(f"La API no respondió a {ruta} (¿saturada? usar respaldo CSV del equipo DICE)")
 
     def openapi_schema(self):
-        """Lee openapi.json, imprime rutas y el esquema del body de structural/general."""
-        self.spec, self.esquema = None, {}
-        try:
-            self.spec = self.get("openapi.json")
-        except Exception as e:  # noqa: BLE001
-            print("No se pudo leer openapi.json:", e)
+        """Solo en --debug: imprime el esquema del body de structural/general."""
+        if not self.debug:
             return {}
-        print("servers:", self.spec.get("servers"))
-        print("rutas:", list(self.spec.get("paths", {}))[:40])
-        comps = self.spec.get("components", {}).get("schemas", {})
-        op = {}
-        for p, ops in self.spec.get("paths", {}).items():
-            if p.rstrip("/").endswith("structural/general"):
-                op = ops.get("post", {})
-        ref = op.get("requestBody", {}).get("content", {}).get("application/json", {}).get("schema", {})
+        spec = self.s.get(OPENAPI, timeout=60).json()
+        op = spec.get("paths", {}).get("/api/v1/structural/general", {}).get("post", {})
+        print(json.dumps(op.get("requestBody", {}), ensure_ascii=False)[:2000])
+        print(json.dumps(spec.get("components", {}).get("schemas", {}), ensure_ascii=False)[:3000])
+        return op
 
-        def resolver(x, prof=0):
-            if prof > 6 or not isinstance(x, dict):
-                return x
-            if "$ref" in x:
-                return resolver(comps.get(x["$ref"].split("/")[-1], {}), prof + 1)
-            return {k: (resolver(v, prof + 1) if isinstance(v, dict) else
-                        [resolver(y, prof + 1) for y in v] if isinstance(v, list) else v) for k, v in x.items()}
-
-        self.esquema = resolver(ref)
-        print("Esquema body structural/general:", json.dumps(self.esquema, ensure_ascii=False)[:2500])
-        return self.esquema
-
-    def _body_desde_esquema(self, variables, filtros, municipio):
-        """Arma el body usando los nombres de campos reales del esquema OpenAPI."""
-        props = (self.esquema or {}).get("properties", {})
-        if not props:
-            return None
-        body = {}
-        for k, v in props.items():
-            kl = k.lower()
-            enum = v.get("enum") or next((x.get("enum") for x in v.get("anyOf", []) + v.get("allOf", [])
-                                          if isinstance(x, dict) and x.get("enum")), None)
-            if "granular" in kl:
-                body[k] = next((e for e in (enum or []) if "country" in str(e).lower() or "pais" in str(e).lower()),
-                               (enum or ["country"])[0])
-            elif "filter" in kl:
-                fprops = v.get("properties", {})
-                f = {}
-                kmun = next((x for x in fprops if "municip" in x.lower()), "municipality_ids")
-                f[kmun] = [municipio]
-                for fk, fv in filtros.items():
-                    real = next((x for x in fprops if fk.split("_")[-1] in x.lower()), fk)
-                    f[real] = fv
-                body[k] = f
-            elif "module" in kl or "modulo" in kl:
-                body[k] = next((e for e in (enum or []) if "sectoral" in str(e).lower()), MODULO)
-            elif "variable" in kl:
-                body[k] = variables
-        return body
-
-    def estructural(self, variables, filtros=None, granularidad="country", municipio=BOGOTA):
-        """POST structural/general probando rutas y variantes de body; recuerda la combinación que funcionó."""
-        filtros = dict(filtros or {})
-        variantes = []
-        b = self._body_desde_esquema(variables, filtros, municipio)
-        if b:
-            variantes.append(b)
-        for mid in ([municipio], [int(municipio)]):
-            for gran in (granularidad, "municipality"):
-                for mod_key in ("module", "module_name", None):
-                    body = {"granularity": gran, "variables": variables,
-                            "variable_filters": {"municipality_ids": mid, **filtros}}
-                    if mod_key:
-                        body[mod_key] = MODULO
-                    variantes.append(body)
-        urls = [self.url_ok] if getattr(self, "url_ok", None) else self._urls("structural/general")
-        if self.payload_ok:
-            variantes.insert(0, self._reusar(self.payload_ok, variables, filtros))
-        ultimo = None
-        for url in urls:
-            for body in variantes:
-                r = self.post(url, body)
-                ultimo = (r.status_code, url, r.text[:600])
-                if r.status_code in (404, 405):
-                    break                       # la ruta no existe: probar la siguiente URL
-                if r.ok:
-                    j = r.json()
-                    filas = extraer_categorias(j)
-                    if filas:
-                        if self.payload_ok is None:
-                            print("URL que funciona:", url, "\nPayload que funciona:", json.dumps(body, ensure_ascii=False))
-                        self.payload_ok, self.url_ok = body, url
-                        self.log.append({"body": body, "respuesta": j})
-                        return filas
-                    print("Respuesta 200 sin categorías reconocibles:", json.dumps(j, ensure_ascii=False)[:800])
-                elif self.debug or r.status_code == 422:
-                    print(r.status_code, json.dumps(body, ensure_ascii=False)[:300], "->", r.text[:400])
-        raise RuntimeError(f"Ninguna variante funcionó. Última respuesta: {ultimo}")
-
-    @staticmethod
-    def _reusar(body, variables, filtros):
-        nb = json.loads(json.dumps(body))
-        for k, v in nb.items():
-            kl = k.lower()
-            if "filter" in kl and isinstance(v, dict):
-                kmun = next((x for x in v if "municip" in x.lower()), None)
-                base = {kmun: v[kmun]} if kmun else {}
-                for fk, fv in filtros.items():
-                    real = next((x for x in v if fk.split("_")[-1] in x.lower()), fk)
-                    base[real] = fv
-                nb[k] = base
-            elif "variable" in kl and "filter" not in kl:
-                nb[k] = variables
-        return nb
+    def estructural(self, variables, filtros=None, granularidad=None, municipio=BOGOTA):
+        body = {"module": MODULO, "variables": variables,
+                "variable_filters": {"municipality_ids": [municipio], **(filtros or {})}}
+        r = self.post("structural/general", body)
+        if not r.ok:
+            raise RuntimeError(f"{r.status_code} {r.text[:400]} · body={json.dumps(body, ensure_ascii=False)}")
+        j = r.json()
+        self.log.append({"body": body, "respuesta": j})
+        filas = extraer_categorias(j)
+        if not filas:
+            raise RuntimeError(f"Respuesta vacía para {body}")
+        return filas
 
 
 def extraer_categorias(j, variable=None) -> list[dict]:
-    """Recorre la respuesta y devuelve [{variable, code, description, value}] de los objetos con code+value."""
-    genericos = {"data", "results", "result", "values", "categories", "items", "rows", "response"}
+    """municipios -> {id} -> variables -> {var} -> values -> [{codigo|code, descripcion|description, conteo|value}]"""
     salida = []
-
-    def walk(x, var):
-        if isinstance(x, dict):
-            if {"code", "value"} <= set(x) and not isinstance(x["value"], (dict, list)):
-                salida.append({"variable": var, "code": x.get("code"),
-                               "description": x.get("description", x.get("label", x.get("code"))), "value": x["value"]})
-                return
-            propio = x.get("variable") or x.get("variable_name") or x.get("name")
-            var = propio if isinstance(propio, str) else var
-            for k, val in x.items():
-                if isinstance(val, (dict, list)):
-                    walk(val, var if k in genericos else k if var is None or k.endswith(("_2023", "_division", "personnel")) else var)
-        elif isinstance(x, list):
-            for e in x:
-                walk(e, var)
-
-    walk(j, variable)
-    for f in salida:
-        try:
-            f["value"] = float(f["value"])
-        except (TypeError, ValueError):
-            f["value"] = float("nan")
+    for m in (j.get("municipios") or {}).values():
+        for var, res in (m.get("variables") or {}).items():
+            for v in (res or {}).get("values", []):
+                code = v.get("codigo", v.get("code"))
+                desc = v.get("descripcion") or v.get("description") or code
+                val = v.get("conteo", v.get("value"))
+                try:
+                    val = float(val)
+                except (TypeError, ValueError):
+                    val = float("nan")
+                salida.append({"variable": var, "code": code, "description": desc, "value": val})
     return salida
 
 
@@ -361,7 +242,7 @@ def main():
     api = CENU(debug=a.debug)
     api.openapi_schema()
     try:
-        print("Universos por módulo:", json.dumps(api.get("modules-universes"), ensure_ascii=False)[:600])
+        print("Universos por módulo:", json.dumps(api.get("structural/modules-universes"), ensure_ascii=False)[:600])
     except Exception as e:  # noqa: BLE001
         print("modules-universes no disponible:", e)
 
@@ -390,7 +271,7 @@ def main():
         fila = {"division": cod, "nombre": d["nombre"], "gran_sector": d["gran_sector"], "unidades": d["unidades"]}
         for var_api, etq in (("total_income_2023", "ingreso"), ("total_employed_personnel", "personal")):
             dist = None
-            for codigo in (f"{cod:02d}", str(cod), cod):
+            for codigo in dict.fromkeys((str(cod), f"{cod:02d}")):
                 try:
                     dist = distribucion(api, var_api, etq, codigo)
                     if len(dist):
@@ -443,6 +324,8 @@ def main():
 def tipologia(f) -> str:
     bi, ai = f.get("pct_bajo_ingreso", float("nan")), f.get("pct_alto_ingreso", float("nan"))
     bp, apr = f.get("pct_bajo_personal", float("nan")), f.get("pct_alto_personal", float("nan"))
+    if all(x != x for x in (bi, ai, bp, apr)):
+        return "Sin datos de rangos"
     if bi == bi and bi >= 70 and (bp != bp or bp >= 80):
         return "Señal de subsistencia (mayoría en rangos bajos)"
     if (ai == ai and ai >= 5) or (apr == apr and apr >= 3):
