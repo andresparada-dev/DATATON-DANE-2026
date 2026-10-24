@@ -132,8 +132,9 @@ def main():
     # ---------------- rangos nacionales
     def resumen_rangos(df, etq, total):
         r = df.rename(columns={"value": "unidades"}).assign(
-            variable=etq, pct_respondientes=lambda x: 100 * x["unidades"] / total,
-            clase=lambda x: x["description"].map(lambda s: clasificar_rango(s, etq)))
+            variable=etq, clase=lambda x: x["description"].map(lambda s: clasificar_rango(s, etq)))
+        resp = r.loc[r["clase"] != "sin_dato", "unidades"].sum()   # "Sin información" no entra al denominador
+        r["pct_respondientes"] = (100 * r["unidades"] / resp).where(r["clase"] != "sin_dato")
         r["pct_acumulado"] = r["pct_respondientes"].cumsum()
         return r[["variable", "code", "unidades", "pct_respondientes", "pct_acumulado", "clase"]]
 
