@@ -1,0 +1,731 @@
+{
+ "ciiu_division": {
+  "total_count": 1058820,
+  "total_value": null,
+  "average": null,
+  "values": [
+   {
+    "codigo": "47",
+    "descripcion": null,
+    "conteo": 524276,
+    "porcentaje": 49.52,
+    "sector": null
+   },
+   {
+    "codigo": "56",
+    "descripcion": null,
+    "conteo": 140847,
+    "porcentaje": 13.3,
+    "sector": null
+   },
+   {
+    "codigo": "45",
+    "descripcion": null,
+    "conteo": 57722,
+    "porcentaje": 5.45,
+    "sector": null
+   },
+   {
+    "codigo": "96",
+    "descripcion": null,
+    "conteo": 50643,
+    "porcentaje": 4.78,
+    "sector": null
+   },
+   {
+    "codigo": "46",
+    "descripcion": null,
+    "conteo": 37847,
+    "porcentaje": 3.57,
+    "sector": null
+   },
+   {
+    "codigo": "95",
+    "descripcion": null,
+    "conteo": 27179,
+    "porcentaje": 2.57,
+    "sector": null
+   },
+   {
+    "codigo": "86",
+    "descripcion": null,
+    "conteo": 19637,
+    "porcentaje": 1.85,
+    "sector": null
+   },
+   {
+    "codigo": "55",
+    "descripcion": null,
+    "conteo": 11805,
+    "porcentaje": 1.11,
+    "sector": null
+   },
+   {
+    "codigo": "85",
+    "descripcion": null,
+    "conteo": 11561,
+    "porcentaje": 1.09,
+    "sector": null
+   },
+   {
+    "codigo": "10",
+    "descripcion": null,
+    "conteo": 10137,
+    "porcentaje": 0.96,
+    "sector": null
+   },
+   {
+    "codigo": "14",
+    "descripcion": null,
+    "conteo": 9760,
+    "porcentaje": 0.92,
+    "sector": null
+   },
+   {
+    "codigo": "52",
+    "descripcion": null,
+    "conteo": 9415,
+    "porcentaje": 0.89,
+    "sector": null
+   },
+   {
+    "codigo": "25",
+    "descripcion": null,
+    "conteo": 7670,
+    "porcentaje": 0.72,
+    "sector": null
+   },
+   {
+    "codigo": "69",
+    "descripcion": null,
+    "conteo": 7433,
+    "porcentaje": 0.7,
+    "sector": null
+   },
+   {
+    "codigo": "33",
+    "descripcion": null,
+    "conteo": 7041,
+    "porcentaje": 0.66,
+    "sector": null
+   },
+   {
+    "codigo": "94",
+    "descripcion": null,
+    "conteo": 6833,
+    "porcentaje": 0.65,
+    "sector": null
+   },
+   {
+    "codigo": "82",
+    "descripcion": null,
+    "conteo": 6054,
+    "porcentaje": 0.57,
+    "sector": null
+   },
+   {
+    "codigo": "49",
+    "descripcion": null,
+    "conteo": 6052,
+    "porcentaje": 0.57,
+    "sector": null
+   },
+   {
+    "codigo": "15",
+    "descripcion": null,
+    "conteo": 5675,
+    "porcentaje": 0.54,
+    "sector": null
+   },
+   {
+    "codigo": "16",
+    "descripcion": null,
+    "conteo": 5168,
+    "porcentaje": 0.49,
+    "sector": null
+   },
+   {
+    "codigo": "31",
+    "descripcion": null,
+    "conteo": 5117,
+    "porcentaje": 0.48,
+    "sector": null
+   },
+   {
+    "codigo": "93",
+    "descripcion": null,
+    "conteo": 4435,
+    "porcentaje": 0.42,
+    "sector": null
+   },
+   {
+    "codigo": "71",
+    "descripcion": null,
+    "conteo": 4205,
+    "porcentaje": 0.4,
+    "sector": null
+   },
+   {
+    "codigo": "61",
+    "descripcion": null,
+    "conteo": 3854,
+    "porcentaje": 0.36,
+    "sector": null
+   },
+   {
+    "codigo": "92",
+    "descripcion": null,
+    "conteo": 3847,
+    "porcentaje": 0.36,
+    "sector": null
+   },
+   {
+    "codigo": "68",
+    "descripcion": null,
+    "conteo": 3760,
+    "porcentaje": 0.36,
+    "sector": null
+   },
+   {
+    "codigo": "77",
+    "descripcion": null,
+    "conteo": 3525,
+    "porcentaje": 0.33,
+    "sector": null
+   },
+   {
+    "codigo": "64",
+    "descripcion": null,
+    "conteo": 3476,
+    "porcentaje": 0.33,
+    "sector": null
+   },
+   {
+    "codigo": "74",
+    "descripcion": null,
+    "conteo": 3390,
+    "porcentaje": 0.32,
+    "sector": null
+   },
+   {
+    "codigo": "32",
+    "descripcion": null,
+    "conteo": 3051,
+    "porcentaje": 0.29,
+    "sector": null
+   },
+   {
+    "codigo": "18",
+    "descripcion": null,
+    "conteo": 3019,
+    "porcentaje": 0.29,
+    "sector": null
+   },
+   {
+    "codigo": "13",
+    "descripcion": null,
+    "conteo": 2939,
+    "porcentaje": 0.28,
+    "sector": null
+   },
+   {
+    "codigo": "75",
+    "descripcion": null,
+    "conteo": 2882,
+    "porcentaje": 0.27,
+    "sector": null
+   },
+   {
+    "codigo": "23",
+    "descripcion": null,
+    "conteo": 2725,
+    "porcentaje": 0.26,
+    "sector": null
+   },
+   {
+    "codigo": "88",
+    "descripcion": null,
+    "conteo": 2640,
+    "porcentaje": 0.25,
+    "sector": null
+   },
+   {
+    "codigo": "38",
+    "descripcion": null,
+    "conteo": 2539,
+    "porcentaje": 0.24,
+    "sector": null
+   },
+   {
+    "codigo": "73",
+    "descripcion": null,
+    "conteo": 2514,
+    "porcentaje": 0.24,
+    "sector": null
+   },
+   {
+    "codigo": "41",
+    "descripcion": null,
+    "conteo": 2437,
+    "porcentaje": 0.23,
+    "sector": null
+   },
+   {
+    "codigo": "42",
+    "descripcion": null,
+    "conteo": 2422,
+    "porcentaje": 0.23,
+    "sector": null
+   },
+   {
+    "codigo": "70",
+    "descripcion": null,
+    "conteo": 2176,
+    "porcentaje": 0.21,
+    "sector": null
+   },
+   {
+    "codigo": "66",
+    "descripcion": null,
+    "conteo": 2093,
+    "porcentaje": 0.2,
+    "sector": null
+   },
+   {
+    "codigo": "80",
+    "descripcion": null,
+    "conteo": 1979,
+    "porcentaje": 0.19,
+    "sector": null
+   },
+   {
+    "codigo": "79",
+    "descripcion": null,
+    "conteo": 1729,
+    "porcentaje": 0.16,
+    "sector": null
+   },
+   {
+    "codigo": "22",
+    "descripcion": null,
+    "conteo": 1633,
+    "porcentaje": 0.15,
+    "sector": null
+   },
+   {
+    "codigo": "84",
+    "descripcion": null,
+    "conteo": 1568,
+    "porcentaje": 0.15,
+    "sector": null
+   },
+   {
+    "codigo": "43",
+    "descripcion": null,
+    "conteo": 1560,
+    "porcentaje": 0.15,
+    "sector": null
+   },
+   {
+    "codigo": "20",
+    "descripcion": null,
+    "conteo": 1474,
+    "porcentaje": 0.14,
+    "sector": null
+   },
+   {
+    "codigo": "58",
+    "descripcion": null,
+    "conteo": 1327,
+    "porcentaje": 0.13,
+    "sector": null
+   },
+   {
+    "codigo": "28",
+    "descripcion": null,
+    "conteo": 1259,
+    "porcentaje": 0.12,
+    "sector": null
+   },
+   {
+    "codigo": "62",
+    "descripcion": null,
+    "conteo": 1256,
+    "porcentaje": 0.12,
+    "sector": null
+   },
+   {
+    "codigo": "53",
+    "descripcion": null,
+    "conteo": 1205,
+    "porcentaje": 0.11,
+    "sector": null
+   },
+   {
+    "codigo": "81",
+    "descripcion": null,
+    "conteo": 1197,
+    "porcentaje": 0.11,
+    "sector": null
+   },
+   {
+    "codigo": "90",
+    "descripcion": null,
+    "conteo": 1026,
+    "porcentaje": 0.1,
+    "sector": null
+   },
+   {
+    "codigo": "36",
+    "descripcion": null,
+    "conteo": 972,
+    "porcentaje": 0.09,
+    "sector": null
+   },
+   {
+    "codigo": "87",
+    "descripcion": null,
+    "conteo": 938,
+    "porcentaje": 0.09,
+    "sector": null
+   },
+   {
+    "codigo": "78",
+    "descripcion": null,
+    "conteo": 838,
+    "porcentaje": 0.08,
+    "sector": null
+   },
+   {
+    "codigo": "24",
+    "descripcion": null,
+    "conteo": 816,
+    "porcentaje": 0.08,
+    "sector": null
+   },
+   {
+    "codigo": "01",
+    "descripcion": null,
+    "conteo": 815,
+    "porcentaje": 0.08,
+    "sector": null
+   },
+   {
+    "codigo": "29",
+    "descripcion": null,
+    "conteo": 774,
+    "porcentaje": 0.07,
+    "sector": null
+   },
+   {
+    "codigo": "11",
+    "descripcion": null,
+    "conteo": 698,
+    "porcentaje": 0.07,
+    "sector": null
+   },
+   {
+    "codigo": "35",
+    "descripcion": null,
+    "conteo": 657,
+    "porcentaje": 0.06,
+    "sector": null
+   },
+   {
+    "codigo": "63",
+    "descripcion": null,
+    "conteo": 511,
+    "porcentaje": 0.05,
+    "sector": null
+   },
+   {
+    "codigo": "27",
+    "descripcion": null,
+    "conteo": 469,
+    "porcentaje": 0.04,
+    "sector": null
+   },
+   {
+    "codigo": "60",
+    "descripcion": null,
+    "conteo": 439,
+    "porcentaje": 0.04,
+    "sector": null
+   },
+   {
+    "codigo": "17",
+    "descripcion": null,
+    "conteo": 421,
+    "porcentaje": 0.04,
+    "sector": null
+   },
+   {
+    "codigo": "50",
+    "descripcion": null,
+    "conteo": 398,
+    "porcentaje": 0.04,
+    "sector": null
+   },
+   {
+    "codigo": "65",
+    "descripcion": null,
+    "conteo": 386,
+    "porcentaje": 0.04,
+    "sector": null
+   },
+   {
+    "codigo": "21",
+    "descripcion": null,
+    "conteo": 355,
+    "porcentaje": 0.03,
+    "sector": null
+   },
+   {
+    "codigo": "72",
+    "descripcion": null,
+    "conteo": 318,
+    "porcentaje": 0.03,
+    "sector": null
+   },
+   {
+    "codigo": "26",
+    "descripcion": null,
+    "conteo": 277,
+    "porcentaje": 0.03,
+    "sector": null
+   },
+   {
+    "codigo": "91",
+    "descripcion": null,
+    "conteo": 263,
+    "porcentaje": 0.02,
+    "sector": null
+   },
+   {
+    "codigo": "59",
+    "descripcion": null,
+    "conteo": 255,
+    "porcentaje": 0.02,
+    "sector": null
+   },
+   {
+    "codigo": "02",
+    "descripcion": null,
+    "conteo": 208,
+    "porcentaje": 0.02,
+    "sector": null
+   },
+   {
+    "codigo": "51",
+    "descripcion": null,
+    "conteo": 196,
+    "porcentaje": 0.02,
+    "sector": null
+   },
+   {
+    "codigo": "30",
+    "descripcion": null,
+    "conteo": 192,
+    "porcentaje": 0.02,
+    "sector": null
+   },
+   {
+    "codigo": "09",
+    "descripcion": null,
+    "conteo": 182,
+    "porcentaje": 0.02,
+    "sector": null
+   },
+   {
+    "codigo": "19",
+    "descripcion": null,
+    "conteo": 144,
+    "porcentaje": 0.01,
+    "sector": null
+   },
+   {
+    "codigo": "39",
+    "descripcion": null,
+    "conteo": 108,
+    "porcentaje": 0.01,
+    "sector": null
+   },
+   {
+    "codigo": "12",
+    "descripcion": null,
+    "conteo": 83,
+    "porcentaje": 0.01,
+    "sector": null
+   },
+   {
+    "codigo": "37",
+    "descripcion": null,
+    "conteo": 39,
+    "porcentaje": 0.0,
+    "sector": null
+   },
+   {
+    "codigo": "08",
+    "descripcion": null,
+    "conteo": 23,
+    "porcentaje": 0.0,
+    "sector": null
+   },
+   {
+    "codigo": "05",
+    "descripcion": null,
+    "conteo": 11,
+    "porcentaje": 0.0,
+    "sector": null
+   },
+   {
+    "codigo": "06",
+    "descripcion": null,
+    "conteo": 7,
+    "porcentaje": 0.0,
+    "sector": null
+   },
+   {
+    "codigo": "03",
+    "descripcion": null,
+    "conteo": 4,
+    "porcentaje": 0.0,
+    "sector": null
+   },
+   {
+    "codigo": "07",
+    "descripcion": null,
+    "conteo": 3,
+    "porcentaje": 0.0,
+    "sector": null
+   },
+   {
+    "codigo": "98",
+    "descripcion": null,
+    "conteo": 2,
+    "porcentaje": 0.0,
+    "sector": null
+   },
+   {
+    "codigo": "99",
+    "descripcion": null,
+    "conteo": 2,
+    "porcentaje": 0.0,
+    "sector": null
+   },
+   {
+    "codigo": "97",
+    "descripcion": null,
+    "conteo": 1,
+    "porcentaje": 0.0,
+    "sector": null
+   },
+   {
+    "codigo": "0x",
+    "descripcion": null,
+    "conteo": 1,
+    "porcentaje": 0.0,
+    "sector": null
+   }
+  ]
+ },
+ "total_income_2023": {
+  "total_count": 875086,
+  "total_value": 2421105396786956.5,
+  "average": 2766705668.6850853,
+  "values": [
+   {
+    "code": "0 - 10 M",
+    "description": "0 - 10 M",
+    "value": 207929
+   },
+   {
+    "code": "11 - 50 M",
+    "description": "11 - 50 M",
+    "value": 327165
+   },
+   {
+    "code": "51 - 100 M",
+    "description": "51 - 100 M",
+    "value": 125733
+   },
+   {
+    "code": "101 - 500 M",
+    "description": "101 - 500 M",
+    "value": 137623
+   },
+   {
+    "code": "501 - 1.000 M",
+    "description": "501 - 1.000 M",
+    "value": 23048
+   },
+   {
+    "code": "1.001 - 5.000 M",
+    "description": "1.001 - 5.000 M",
+    "value": 28195
+   },
+   {
+    "code": "5.001 - 10.000 M",
+    "description": "5.001 - 10.000 M",
+    "value": 8156
+   },
+   {
+    "code": "10.001 - 100.000 M",
+    "description": "10.001 - 100.000 M",
+    "value": 14571
+   },
+   {
+    "code": "> 100.000 M",
+    "description": "> 100.000 M",
+    "value": 2666
+   }
+  ]
+ },
+ "total_employed_personnel": {
+  "total_count": 870723,
+  "total_value": null,
+  "average": null,
+  "values": [
+   {
+    "code": "0",
+    "description": "0",
+    "value": 24331
+   },
+   {
+    "code": "1 - 5",
+    "description": "1 - 5",
+    "value": 744163
+   },
+   {
+    "code": "6 - 10",
+    "description": "6 - 10",
+    "value": 49424
+   },
+   {
+    "code": "11 - 20",
+    "description": "11 - 20",
+    "value": 21621
+   },
+   {
+    "code": "21 - 50",
+    "description": "21 - 50",
+    "value": 13958
+   },
+   {
+    "code": "51 - 100",
+    "description": "51 - 100",
+    "value": 7250
+   },
+   {
+    "code": "101 - 500",
+    "description": "101 - 500",
+    "value": 7804
+   },
+   {
+    "code": "501+",
+    "description": "501+",
+    "value": 2172
+   }
+  ]
+ }
+}

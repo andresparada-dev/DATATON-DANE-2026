@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENU - Ruta 2: Economía Real del Territorio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Scrollbar styling for table */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-900 to-blue-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row justify-between items-center">
+            <div class="flex items-center gap-4 mb-2 sm:mb-0">
+                <div class="bg-white/10 p-2 rounded-lg backdrop-blur-sm border border-white/20">
+                    <i class="fa-solid fa-chart-pie text-2xl text-blue-200"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold tracking-tight">Ruta 2: Economía real del territorio</h1>
+                    <p class="text-blue-200 text-sm font-medium flex items-center gap-2">
+                        <i class="fa-solid fa-location-dot"></i> Bogotá D.C.
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="bg-amber-400 text-amber-950 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1.5 uppercase tracking-wide">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Resultados Preliminares
+                </span>
+                <span class="bg-white/10 border border-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
+                    CENU 2024 · DataJam 2026
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-6">
+        
+        <!-- KPI Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex items-center gap-4 border-l-4 border-l-blue-500 hover:shadow-md transition-shadow">
+                <div class="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center text-blue-600 text-xl flex-shrink-0">
+                    <i class="fa-solid fa-store"></i>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-slate-500">Unidades Económicas</p>
+                    <p class="text-2xl font-bold text-slate-800">195,745</p><p class="text-xs text-slate-400">con CIIU visible · universo 195,755</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex items-center gap-4 border-l-4 border-l-indigo-500 hover:shadow-md transition-shadow">
+                <div class="bg-indigo-50 w-12 h-12 rounded-full flex items-center justify-center text-indigo-600 text-xl flex-shrink-0">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-slate-500">Divisiones CIIU</p>
+                    <p class="text-2xl font-bold text-slate-800">85</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex items-center gap-4 border-l-4 border-l-emerald-500 hover:shadow-md transition-shadow">
+                <div class="bg-emerald-50 w-12 h-12 rounded-full flex items-center justify-center text-emerald-600 text-xl flex-shrink-0">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-slate-500">Mayor Escalamiento</p>
+                    <p class="text-sm font-bold text-slate-800 leading-tight">Comercio al por mayor<br><span class="text-emerald-600 text-xs">(36.1% Ingresos &gt; 1.000 M)</span></p>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex items-center gap-4 border-l-4 border-l-rose-500 hover:shadow-md transition-shadow">
+                <div class="bg-rose-50 w-12 h-12 rounded-full flex items-center justify-center text-rose-600 text-xl flex-shrink-0">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div>
+                    <p class="text-sm font-medium text-slate-500">Alerta de Subsistencia</p>
+                    <p class="text-sm font-bold text-slate-800 leading-tight">Rep. Computadores<br><span class="text-rose-600 text-xs">(32.2% Ingresos 0-10 M)</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visualizations Area -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Main Chart -->
+            <div class="col-span-1 lg:col-span-2 bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold text-slate-800"><i class="fa-solid fa-chart-bar text-blue-500 mr-2"></i> Top 12 Sectores por Volumen (Unidades)</h2>
+                    <span class="text-xs text-slate-400 font-medium px-2 py-1 bg-slate-100 rounded">Interactúa con las barras</span>
+                </div>
+                <div class="relative h-[400px] w-full">
+                    <canvas id="unitsChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Detail Panel (Dynamic) -->
+            <div class="col-span-1 bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col">
+                <div class="p-6 border-b border-slate-100 bg-slate-50 rounded-t-xl">
+                    <h2 class="text-lg font-bold text-slate-800"><i class="fa-solid fa-magnifying-glass-chart text-indigo-500 mr-2"></i> Zoom al Sector</h2>
+                    <p class="text-xs text-slate-500 mt-1">Selecciona un sector en la gráfica para ver el detalle de ingresos de las unidades que respondieron.</p>
+                </div>
+                
+                <div id="detailPanel" class="p-6 flex-grow flex flex-col justify-center items-center text-center fade-in">
+                    <!-- Default state before hover -->
+                    <div class="text-slate-300 mb-3">
+                        <i class="fa-solid fa-hand-pointer text-4xl"></i>
+                    </div>
+                    <p class="text-slate-500 font-medium">Pasa el cursor sobre la gráfica de barras para analizar un sector.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Policy Recommendations -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="bg-slate-800 text-white p-4">
+                <h2 class="text-lg font-bold"><i class="fa-solid fa-lightbulb text-yellow-400 mr-2"></i> Conclusiones y Recomendaciones de Política Pública</h2>
+            </div>
+            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6 bg-gradient-to-br from-white to-slate-50">
+                
+                <!-- Subsistence finding -->
+                <div class="bg-rose-50/50 border border-rose-100 rounded-lg p-5">
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 bg-rose-100 text-rose-600 rounded p-1.5"><i class="fa-solid fa-arrow-down"></i></div>
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-md mb-2">Señales de Subsistencia e Informalidad</h3>
+                            <p class="text-sm text-slate-600 mb-3">
+                                <strong>Reparación de computadores y efectos personales (32.2%)</strong>, <strong>Otros servicios personales (22.9%)</strong> y <strong>Comercio al por menor (20.1%)</strong> concentran unidades con ingresos de 0 a 10 M y casi no tienen unidades sobre 1.000 M (0.7%, 0.8% y 3.3%). Juntas suman 106.718 unidades: el 54.5% de Bogotá.
+                            </p>
+                            <div class="bg-white border border-rose-200 p-3 rounded text-sm text-slate-700 shadow-sm">
+                                <span class="font-semibold text-rose-700">Recomendación:</span> Implementar programas de formalización flexible, microcréditos blandos y capacitación técnica focalizada en estos sectores para asegurar la supervivencia de los micronegocios.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scaling finding -->
+                <div class="bg-emerald-50/50 border border-emerald-100 rounded-lg p-5">
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 bg-emerald-100 text-emerald-600 rounded p-1.5"><i class="fa-solid fa-rocket"></i></div>
+                        <div>
+                            <h3 class="font-bold text-slate-800 text-md mb-2">Oportunidades de Escalamiento</h3>
+                            <p class="text-sm text-slate-600 mb-3">
+                                <strong>Comercio al por mayor (36.1%)</strong>, <strong>Elaboración de productos alimenticios (22.9%)</strong> y <strong>Almacenamiento (19.0%)</strong> tienen la mayor proporción de unidades con ingresos &gt; 1.000 M (referencia nacional: 6.1%).
+                            </p>
+                            <div class="bg-white border border-emerald-200 p-3 rounded text-sm text-slate-700 shadow-sm">
+                                <span class="font-semibold text-emerald-700">Recomendación:</span> Facilitar cadenas de proveeduría corporativa, acceso a mercados internacionales e incentivos tributarios por adopción tecnológica e innovación.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Full Data Table -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mb-8">
+            <div class="p-4 border-b border-slate-200 bg-slate-50">
+                <h2 class="text-sm font-bold text-slate-700"><i class="fa-solid fa-table border-slate-300 mr-2"></i> Tabla de Datos: Top 12 Divisiones</h2>
+            </div>
+            <div class="overflow-x-auto custom-scrollbar">
+                <table class="w-full text-sm text-left">
+                    <thead class="text-xs text-slate-500 uppercase bg-slate-50 border-b border-slate-200">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 font-semibold">División CIIU</th>
+                            <th scope="col" class="px-6 py-3 font-semibold text-right">Unidades</th>
+                            <th scope="col" class="px-6 py-3 font-semibold text-center">Ingreso Bajo (0 - 10M)</th>
+                            <th scope="col" class="px-6 py-3 font-semibold text-center">Ingreso Alto (> 1.000M)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody" class="divide-y divide-slate-100">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs mt-auto">
+        <p>DataJam CENU 2026 - Ejercicio Ruta 2. Dashboard interactivo generado para la presentación de resultados.</p>
+        <p class="mt-1">Nota: Las cifras utilizadas corresponden a un análisis de resultados preliminares sujetos a verificación estadística.</p>
+    </footer>
+
+    <!-- JavaScript Data and Logic -->
+    <script>
+        // Data Extracted from Python Script
+        const data = [
+            { name: "Comercio al por menor", division: "47", units: 92335, low: 20.1, high: 3.3, tipologia: "Señal de subsistencia", icon: "fa-shop" },
+            { name: "Servicios de comida y bebida", division: "56", units: 23357, low: 14.6, high: 2.5, tipologia: "Intermedio", icon: "fa-utensils" },
+            { name: "Comercio y rep. vehículos/motos", division: "45", units: 11089, low: 16.1, high: 6.0, tipologia: "Intermedio", icon: "fa-car" },
+            { name: "Otros servicios personales", division: "96", units: 9125, low: 22.9, high: 0.8, tipologia: "Señal de subsistencia", icon: "fa-scissors" },
+            { name: "Comercio al por mayor", division: "46", units: 8592, low: 10.1, high: 36.1, tipologia: "Base para escalar", icon: "fa-boxes-stacked" },
+            { name: "Rep. computadores y efectos", division: "95", units: 5258, low: 32.2, high: 0.7, tipologia: "Señal de subsistencia", icon: "fa-laptop-medical" },
+            { name: "Atención de la salud humana", division: "86", units: 4023, low: 10.7, high: 13.7, tipologia: "Base para escalar", icon: "fa-stethoscope" },
+            { name: "Educación", division: "85", units: 2361, low: 15.3, high: 16.7, tipologia: "Base para escalar", icon: "fa-graduation-cap" },
+            { name: "Confección prendas de vestir", division: "14", units: 1994, low: 21.2, high: 11.4, tipologia: "Polarizado", icon: "fa-shirt" },
+            { name: "Productos elaborados de metal", division: "25", units: 1801, low: 12.1, high: 14.0, tipologia: "Base para escalar", icon: "fa-hammer" },
+            { name: "Elab. productos alimenticios", division: "10", units: 1658, low: 9.3, high: 22.9, tipologia: "Base para escalar", icon: "fa-bread-slice" },
+            { name: "Almacenamiento y act. comp.", division: "52", units: 1621, low: 17.6, high: 19.0, tipologia: "Base para escalar", icon: "fa-warehouse" }
+        ];
+
+        // Format numbers with commas
+        const formatNumber = (num) => new Intl.NumberFormat('en-US').format(num);
+
+        // Populate Table
+        const tbody = document.getElementById('tableBody');
+        data.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.className = "hover:bg-blue-50/50 transition-colors";
+            tr.innerHTML = `
+                <td class="px-6 py-3 font-medium text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid ${row.icon} w-5 text-center text-slate-400"></i>
+                    <span class="truncate max-w-[200px]" title="${row.name}">${row.name}</span>
+                </td>
+                <td class="px-6 py-3 text-right font-medium">${formatNumber(row.units)}</td>
+                <td class="px-6 py-3">
+                    <div class="flex items-center justify-center gap-2">
+                        <span class="w-12 text-right">${row.low}%</span>
+                        <div class="w-24 h-2 bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-rose-500 rounded-full" style="width: ${row.low}%"></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="px-6 py-3">
+                    <div class="flex items-center justify-center gap-2">
+                        <span class="w-12 text-right">${row.high}%</span>
+                        <div class="w-24 h-2 bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-500 rounded-full" style="width: ${row.high}%"></div>
+                        </div>
+                    </div>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        // Setup Chart
+        const ctx = document.getElementById('unitsChart').getContext('2d');
+        
+        // Colors generator based on rank
+        const getColors = (count) => {
+            const base = [37, 99, 235]; // Tailwind blue-600
+            return Array.from({length: count}).map((_, i) => {
+                const alpha = 1 - (i * 0.05); // Fade out slightly
+                return `rgba(${base[0]}, ${base[1]}, ${base[2]}, ${alpha})`;
+            });
+        };
+
+        const chartColors = getColors(data.length);
+
+        const unitsChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.map(d => d.name),
+                datasets: [{
+                    label: 'Unidades Económicas',
+                    data: data.map(d => d.units),
+                    backgroundColor: chartColors,
+                    borderRadius: 4,
+                    borderSkipped: false
+                }]
+            },
+            options: {
+                indexAxis: 'y', // Horizontal bar chart
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                        padding: 12,
+                        titleFont: { size: 14, family: 'Inter' },
+                        bodyFont: { size: 13, family: 'Inter' },
+                        callbacks: {
+                            label: (context) => ` ${formatNumber(context.raw)} unidades`
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { color: '#f1f5f9', drawBorder: false },
+                        ticks: { font: { family: 'Inter' }, color: '#64748b' }
+                    },
+                    y: {
+                        grid: { display: false, drawBorder: false },
+                        ticks: {
+                            font: { family: 'Inter', size: 11 },
+                            color: '#475569',
+                            callback: function(value, index, values) {
+                                const label = this.getLabelForValue(value);
+                                return label.length > 22 ? label.substr(0, 22) + '...' : label;
+                            }
+                        }
+                    }
+                },
+                onHover: (event, elements) => {
+                    if (elements.length > 0) {
+                        const index = elements[0].index;
+                        updateDetailPanel(index);
+                    }
+                }
+            }
+        });
+
+        // Update detail panel logic
+        const detailPanel = document.getElementById('detailPanel');
+        let currentHoverIndex = -1;
+
+        function updateDetailPanel(index) {
+            if (currentHoverIndex === index) return;
+            currentHoverIndex = index;
+            
+            const sector = data[index];
+            const middlePct = (100 - sector.low - sector.high).toFixed(1);
+            
+            // Determine typology text
+            let tipologiaTag = "";
+            const estilos = {"Señal de subsistencia": "bg-rose-100 text-rose-700 border-rose-200", "Base para escalar": "bg-emerald-100 text-emerald-700 border-emerald-200", "Polarizado": "bg-amber-100 text-amber-700 border-amber-200", "Intermedio": "bg-slate-100 text-slate-600 border-slate-200"};
+            tipologiaTag = `<span class="${estilos[sector.tipologia]} text-xs font-bold px-2 py-1 rounded border">${sector.tipologia}</span><p class="text-xs text-slate-400 mt-2">Referencia nacional: 23.8% bajo · 6.1% alto</p>`;
+
+            detailPanel.innerHTML = `
+                <div class="w-full text-left fade-in flex flex-col h-full">
+                    
+                    <div class="mb-4">
+                        <div class="text-blue-500 mb-2 text-2xl"><i class="fa-solid ${sector.icon}"></i></div>
+                        <h3 class="text-xl font-bold text-slate-800 leading-tight mb-2">${sector.name}</h3>
+                        ${tipologiaTag}
+                    </div>
+                    
+                    <div class="bg-slate-50 border border-slate-100 rounded-lg p-4 mb-4">
+                        <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-1">Volumen</p>
+                        <p class="text-2xl font-black text-blue-900">${formatNumber(sector.units)} <span class="text-sm font-normal text-slate-500">unidades</span></p>
+                    </div>
+
+                    <p class="text-xs text-slate-500 font-semibold uppercase tracking-wider mb-3 mt-auto">Distribución de Ingresos (2023)</p>
+                    
+                    <div class="space-y-4">
+                        <!-- Low Income -->
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-700">Rango Bajo <span class="text-slate-400 font-normal">(0 - 10 Millones)</span></span>
+                                <span class="font-bold text-rose-600">${sector.low}%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-rose-500 h-2.5 rounded-full" style="width: ${sector.low}%"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Middle Income (Calculated) -->
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-600">Rango Medio <span class="text-slate-400 font-normal">(10M - 1.000M)</span></span>
+                                <span class="font-bold text-slate-600">${middlePct}%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-slate-400 h-2.5 rounded-full" style="width: ${middlePct}%"></div>
+                            </div>
+                        </div>
+
+                        <!-- High Income -->
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-700">Rango Alto <span class="text-slate-400 font-normal">(> 1.000 Millones)</span></span>
+                                <span class="font-bold text-emerald-600">${sector.high}%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: ${sector.high}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
